@@ -1,33 +1,56 @@
-run installer nixos-image
+# My NixOS configuration
+<br>
+<div align="center">
+    <a href="https://github.com/simon-bueler/nixos/">
+        <img src="https://img.shields.io/github/repo-size/anotherhadi/nixy?color={primarycolor}&labelColor={backgroundcolor}&style=for-the-badge&logo=github&logoColor={primarycolor}">
+    </a>
+    <a href="https://nixos.org">
+        <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor={backgroundcolor}&logo=NixOS&logoColor={primarycolor}&color={primarycolor}">
+    </a>
+    <a href="https://github.com/simon-bueler/nixos/blob/main/LICENSE">
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&colorA={backgroundcolor}&colorB={primarycolor}&logo=unlicense&logoColor={primarycolor}"/>
+    </a>
+</div>
+<br>
 
-clone to ~/.config/nixos
+> [!WARNING]
+> This is my personal configuration. They may change without notice and can be in a broken state. Use at own risk.
 
+# Installation
+
+1. Start the installer NixOS image
+2. Clone this repo into ~/.config
+3. run
+```sh
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko .config/nixos/hosts/nixvm/disko-config.nix
-
+```
+4. if no error run
+```sh
 sudo nixos-install --flake .config/nixos#nixvm
+```
 
-# 📓 Components
-|                             | NixOS + Hyprland                                                                              |
-| --------------------------- | :---------------------------------------------------------------------------------------------:
+# 📓 Components (in Progress)
+|                             | NixOS + Hyprland                                                                     |
+| --------------------------- | :------------------------------------------------------------------------------------:
 | **Window Manager**          | [Hyprland][Hyprland] |
 | **Bar**                     | [HyprPanel][HyprPanel] |
-| **Application Launcher**    | [rofi][rofi] |
-| **Notification Daemon**     | [swaync][swaync] |
-| **Terminal Emulator**       | [Wezterm][Wezterm] |
+| **Application Launcher**    | [wofi][wofi] |
+| **Notification Daemon**     |  |
+| **Terminal Emulator**       | [Kitty][kitty] |
 | **Shell**                   | [zsh][zsh] |
-| **Text Editor**             | [VSCodium][VSCodium] + [Neovim][Neovim] |
-| **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
+| **Text Editor**             | [Zed][zed] + [LunarVim][lunarvim] |
+| **network management tool** | [NetworkManager][NetworkManager]  |
 | **System resource monitor** | [Btop][Btop] |
-| **File Manager**            | [nemo][nemo] + [yazi][yazi] |
-| **Fonts**                   | [CascadiaCode Nerd Font][Nerd fonts] + [JetBrainsMono Nerd Font][Nerd fonts] |
-| **Color Scheme**            | [Gruvbox Dark Hard][Gruvbox] |
-| **Cursor**                  | [Bibata-Modern-Ice][Bibata-Modern-Ice] |
-| **Icons**                   | [Papirus-Dark][Papirus-Dark] |
-| **Lockscreen**              | [Hyprlock][Hyprlock] + [Swaylock-effects][Swaylock-effects] |
+| **File Manager**            | [thunar][thunar] + [yazi][yazi] |
+| **Fonts**                   |  |
+| **Color Scheme**            |  |
+| **Cursor**                  |  |
+| **Icons**                   |  |
+| **Lockscreen**              | [Hyprlock][Hyprlock] |
 | **Image Viewer**            | [qview][qview] |
-| **Media Player**            | [mpv][mpv] |
-| **Music Player**            | [audacious][audacious] |
-| **Screenshot Software**     | [grimblast][grimblast] |
+| **Media Player**            | [vlc][vlc] |
+| **Music Player**            | [feishin][feishin] |
+| **Screenshot Software**     | [swappy][swappy] |
 | **Screen Recording**        | [wf-recorder][wf-recorder] |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
 | **Color Picker**            | [hyprpicker][hyprpicker] |
