@@ -31,6 +31,8 @@ in {
     dconf
     wayland-utils
     wayland-protocols
+    waypipe
+    wtype
     direnv
     meson
   ];
@@ -44,6 +46,10 @@ in {
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       exec-once = [ "" ];
 

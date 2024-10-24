@@ -2,7 +2,7 @@
 let fetch = config.var.theme.fetch; # neofetch, nerdfetch, pfetch
 in {
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh thefuck ];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
@@ -59,7 +59,9 @@ in {
       cd = "z";
       ls = "eza --icons=always --no-quotes";
       tree = "eza --icons=always --tree --no-quotes";
+      la = "ls -al";
       sl = "ls";
+      cat = "bat";
       open = "${pkgs.xdg_utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
 
