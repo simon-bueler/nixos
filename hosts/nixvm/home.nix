@@ -9,7 +9,6 @@
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
-    ../../home/programs/spicetify
     ../../home/programs/yazi
     ../../home/programs/markdown
     ../../home/programs/thunar
@@ -76,6 +75,9 @@
 
     # Import my profile picture, used by the hyprpanel dashboard
     file.".profile_picture.png" = { source = ./profile_picture.jpeg; };
+
+    # Import my wallpaper, used by the hyprpanel dashboard
+    #file.".wallpaper.png" = { source = ./wallpaper.png; };
 
     # Don't touch this
     stateVersion = "24.05";

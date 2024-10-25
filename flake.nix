@@ -16,18 +16,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     plugin-markdown = {
       url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
-    nixy-wallpapers = {
-      url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
 
@@ -36,8 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # FIXME: Solve build error until this is fixed
-    stylix.url = "github:danth/stylix/32dba263f63f830d2f11fb079f8796cdec73d3ce";
+    stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
 

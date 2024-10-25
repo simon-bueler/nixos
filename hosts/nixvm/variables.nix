@@ -9,6 +9,7 @@
     configDirectory = "/home/" + config.var.username
       + "/.config/nixos"; # The path of the nixos configuration directory
 
+
     keyboardLayout = "ch";
     consoleLayout = "sg";
 
@@ -27,14 +28,14 @@
 
     theme = {
       rounding = 15;
-      gaps-in = 10;
-      gaps-out = 10 * 2;
+      gaps-in = 3;
+      gaps-out = 3 * 2;
       active-opacity = 1;
-      inactive-opacity = 0.89;
+      inactive-opacity = 0.8;
       blur = true;
-      border-size = 3;
+      border-size = 1;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
-      fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
+      fetch = "neofetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = {
         transparent = true;
