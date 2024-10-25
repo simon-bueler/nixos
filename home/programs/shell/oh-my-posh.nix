@@ -130,7 +130,7 @@ in {
                 "time_format": "15:04:05"
               },
               "style": "diamond",
-              "template": " {{ .CurrentDate | date .Format }}<#007ACC> \ue641 </>",
+              "template": " {{ .CurrentDate | date .Format }}<#${accent2}> \ue641 </>",
               "trailing_diamond": "\u2593\ue0c6",
               "type": "time"
             }

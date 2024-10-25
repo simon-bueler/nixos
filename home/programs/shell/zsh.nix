@@ -1,8 +1,7 @@
 { pkgs, lib, config, ... }:
-let fetch = config.var.theme.fetch; # neofetch, nerdfetch, pfetch
-in {
+{
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh thefuck ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh thefuck fastfetch ];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
@@ -15,14 +14,8 @@ in {
 
     initExtraFirst = ''
       bindkey -e
-      ${if fetch == "neofetch" then
-        pkgs.neofetch + "/bin/neofetch"
-      else if fetch == "nerdfetch" then
-        "nerdfetch"
-      else if fetch == "pfetch" then
-        "echo; ${pkgs.pfetch}/bin/pfetch"
-      else
-        ""}
+
+      ${pkgs.fastfetch + "/bin/fastfetch -l nix_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
 
       function sesh-sessions() {
         session=$(sesh list -t -c | fzf --height 70% --reverse)
@@ -63,7 +56,7 @@ in {
       la = "ls -al";
       sl = "ls";
       cat = "bat";
-      open = "${pkgs.xdg_utils}/bin/xdg-open";
+      open = "${pkgs.xdg-utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
 
       wireguard-import = "nmcli connection import type wireguard file";

@@ -35,7 +35,6 @@
       blur = true;
       border-size = 1;
       animation-speed = "medium"; # "fast" | "medium" | "slow"
-      fetch = "neofetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
       bar = {
         transparent = true;

@@ -7,11 +7,11 @@
     ../../home/programs/kitty
     ../../home/programs/qutebrowser
     ../../home/programs/shell
-    ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/yazi
     ../../home/programs/markdown
     ../../home/programs/thunar
+    ../../home/programs/zed-editor
 
     # Scripts
     ../../home/scripts # All scripts
@@ -39,7 +39,6 @@
 
     packages = with pkgs; [
       # Apps
-      zed-editor
       brave
       discord
       vlc
