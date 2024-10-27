@@ -27,7 +27,6 @@ let
               {"title": "Proton", "url": "https://mail.proton.me/u/0/inbox", "icon": ""},
               {"title": "Cloudflare One", "url": "https://one.dash.cloudflare.com/", "icon": ""},
               {"title": "Chat GPT", "url": "https://chat.openai.com/", "icon": "󰭹"},
-              {"title": "Nixvim", "url": "https://nix-community.github.io/nixvim/", "icon": ""},
               {"title": "Hyprland Wiki", "url": "https://wiki.hyprland.org/", "icon": "󰖬"},
               {"title": "Youtube", "url": "https://youtube.com", "icon": "󰗃"},
               {"title": "Figma", "url": "https://figma.com", "icon": ""},
@@ -109,7 +108,6 @@ in {
       proton = "https://mail.proton.me/u/0/inbox";
       cloudflare-one = "https://one.dash.cloudflare.com/";
       chatgpt = "https://chat.openai.com/";
-      nixvim = "https://nix-community.github.io/nixvim/";
       hyprland = "https://wiki.hyprland.org/";
       nerdfont = "https://www.nerdfonts.com/cheat-sheet";
       youtube = "https://youtube.com/";

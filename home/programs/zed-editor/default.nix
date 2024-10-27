@@ -15,6 +15,9 @@
         dark = "One Dark";
       };
       soft_wrap = "editor_width";
+      experimental.theme_overrides =  {
+        editor.document_highlight.read_background = "#777777FF";
+      };
     };
   };
 }
