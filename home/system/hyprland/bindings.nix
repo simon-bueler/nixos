@@ -9,6 +9,7 @@
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$mod,TAB, overview:toggle" # Overview
 
       "$mod,Q, killactive," # Close window
       "$mod,T, togglefloating," # Toggle Floating
@@ -46,6 +47,9 @@
 
     bindl = [
       ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
+      ",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause" # Play/Pause Song
+      ",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next" # Next Song
+      ",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous" # Previous Song
       ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
     ];
 
