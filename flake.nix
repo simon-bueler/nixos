@@ -51,6 +51,23 @@
             ./hosts/nixvm/configuration.nix # CHANGEME
           ];
         };
-    };
+      };
+      nixSer4 = # CHANGEME
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            {
+              nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+              _module.args = { inherit inputs; };
+            }
+            lix-module.nixosModules.default
+            inputs.disko.nixosModules.disko
+            inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+            ./hosts/nixSer4/configuration.nix # CHANGEME
+          ];
+        };
+      };
+
   };
 }
