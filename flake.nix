@@ -51,8 +51,7 @@
             ./hosts/nixvm/configuration.nix # CHANGEME
           ];
         };
-      };
-      nixSer4 = # CHANGEME
+      nixSer4 =
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -64,10 +63,9 @@
             inputs.disko.nixosModules.disko
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
-            ./hosts/nixSer4/configuration.nix # CHANGEME
+            ./hosts/nixSer4/configuration.nix
           ];
         };
-      };
-
+    };
   };
 }
