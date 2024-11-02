@@ -2,7 +2,7 @@
   imports = [ ../../nixos/variables-config.nix ];
 
   config.var = {
-    hostname = "nixvm";
+    hostname = "nixSer4";
     username = "simon";
     password = "$y$j9T$KWxCw6L0CU.CezL75MlL7.$eNq00ZxucT8ioeXcf995nULGlTzvFGXtv9IknpU6602";
     sshAuthKey = "";

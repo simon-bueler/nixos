@@ -44,6 +44,7 @@
       vlc
       feishin
       element-desktop
+      freefilesync
 
       # Dev
       # go
@@ -60,6 +61,7 @@
       pandoc
       btop
       lunarvim
+      mosh
 
       # Just cool
       peaclock

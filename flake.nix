@@ -18,6 +18,7 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     plugin-markdown = {
       url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;

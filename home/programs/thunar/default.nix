@@ -37,7 +37,7 @@
       <property name="last-toolbar-item-order" type="string" value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"/>
       <property name="last-toolbar-visible-buttons" type="string" value="0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0"/>
       <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
-      <property name="last-show-hidden" type="bool" value="false"/>
+      <property name="last-show-hidden" type="bool" value="true"/>
       <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
       <property name="last-details-view-column-widths" type="string" value="50,50,127,50,50,50,50,50,751,50,50,75,50,145"/>
     </channel>

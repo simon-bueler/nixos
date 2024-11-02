@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
 
-  home.packages = with pkgs; [ bat ripgrep tldr sesh thefuck fastfetch ];
+  home.packages = with pkgs; [ bat ripgrep tldr sesh fastfetch ];
 
   home.sessionPath = [ "$HOME/go/bin" ];
 
@@ -75,5 +75,28 @@
       gcb = "git checkout -b";
       gbr = "git branch";
     };
+    plugins = [
+        {
+        # will source zsh-autosuggestions.plugin.zsh
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+        }
+        {
+        name = "zsh-completions";
+        src = pkgs.zsh-completions;
+        file = "share/zsh-completions/zsh-completions.zsh";
+        }
+        {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+        }
+        {
+        name = "fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+    ];
   };
 }

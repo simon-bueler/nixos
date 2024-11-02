@@ -11,7 +11,7 @@ let
       "config": {
         "title" : "Welcome Home",
         "openLinksInNewTab": false,
-        "locale": "fr-FR",
+        "locale": "de-CH",
         "colors": {
           "primary": "${accent}",
           "background": "${background}",
