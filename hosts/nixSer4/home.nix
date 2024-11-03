@@ -25,7 +25,7 @@
     # ../../home/system/hyprswitch
     ../../home/system/gtk
     ../../home/system/wofi
-    ../../home/system/batsignal
+    #../../home/system/batsignal
     ../../home/system/zathura
     ../../home/system/mime
     ../../home/system/udiskie

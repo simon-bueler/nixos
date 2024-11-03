@@ -59,6 +59,9 @@
       open = "${pkgs.xdg-utils}/bin/xdg-open";
       icat = "${pkgs.kitty}/bin/kitty +kitten icat";
 
+      ssh = "${pkgs.kitty}/bin/kitty +kitten ssh";
+      diff = "${pkgs.kitty}/bin/kitty +kitten diff";
+
       wireguard-import = "nmcli connection import type wireguard file";
 
 

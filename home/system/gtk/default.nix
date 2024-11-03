@@ -43,15 +43,11 @@ in {
     font = { name = config.stylix.fonts.serif.name; };
 
     gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+        gtk-application-prefer-dark-theme=1;
     };
 
     gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+        gtk-application-prefer-dark-theme=1;
     };
   };
 
@@ -83,7 +79,7 @@ in {
           sed -i '2,26d' $file
           sed -i '2i @import url("../colors3");' $file
 
-          cp -r . $out 
+          cp -r . $out
         '';
       };
     };

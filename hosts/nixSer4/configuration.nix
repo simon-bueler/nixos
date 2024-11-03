@@ -14,7 +14,7 @@
     ../../nixos/utils.nix
     ../../nixos/xdg-portal.nix
     ../../nixos/variables-config.nix
-    ../../nixos/openssh.nix
+    #../../nixos/openssh.nix
 
     #../../nixos/vm.nix
 
