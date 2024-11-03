@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
-let 
+let
   username = config.var.username;
   password = config.var.password;
   sshAuthKey = config.var.sshAuthKey;
 in {
   programs.zsh.enable = true;
+  programs.ssh.startAgent = true;
   users = {
     defaultUserShell = pkgs.zsh;
     users.${username} = {

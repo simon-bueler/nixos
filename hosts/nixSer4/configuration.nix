@@ -16,7 +16,7 @@
     ../../nixos/variables-config.nix
     ../../nixos/openssh.nix
 
-    ../../nixos/vm.nix
+    #../../nixos/vm.nix
 
     ../../themes/nixy.nix
 
