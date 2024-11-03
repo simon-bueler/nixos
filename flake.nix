@@ -32,10 +32,6 @@
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
-    hyprspace = {
-          url = "github:KZDKM/Hyprspace";
-          inputs.hyprland.follows = "hyprland";
-        };
 
   };
 

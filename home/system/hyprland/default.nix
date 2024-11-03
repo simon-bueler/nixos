@@ -11,7 +11,7 @@ let
   keyboardLayout = config.var.keyboardLayout;
 in {
 
-  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ];
+  imports = [ ./animations.nix ./bindings.nix ]; #./polkitagent.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
@@ -43,7 +43,7 @@ in {
     systemd.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-    plugins = [ inputs.hyprspace.packages.${pkgs.system}.Hyprspace ];
+    plugins = [ ];
 
     settings = {
       "$mod" = "SUPER";
@@ -53,7 +53,7 @@ in {
         force_zero_scaling = true;
       };
 
-      exec-once = [ "" ];
+      exec-once = [ "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" ];
 
       monitor = [
         # "Virtual-1,1440x1050@60,auto,1"
@@ -63,27 +63,23 @@ in {
       env = [
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_DESKTOP,Hyprland"
         "MOZ_ENABLE_WAYLAND,1"
         "ANKI_WAYLAND,1"
         "DISABLE_QT5_COMPAT,0"
         "NIXOS_OZONE_WL,1"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM=wayland,xcb"
+        "QT_QPA_PLATFORM=wayland,wayland-egl,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
-        "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
-        "__GL_GSYNC_ALLOWED,0"
-        "__GL_VRR_ALLOWED,0"
+        "GTK2_RC_FILES,/home/simon/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
         "DISABLE_QT5_COMPAT,0"
         "DIRENV_LOG_FORMAT,"
         "WLR_DRM_NO_ATOMIC,1"
         "WLR_BACKEND,vulkan"
         "WLR_RENDERER,vulkan"
         "WLR_NO_HARDWARE_CURSORS,1"
-        "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
         # "AQ_DRM_DEVICES,/dev/dri/card0" # CHANGEME: Related to the GPU
@@ -144,8 +140,9 @@ in {
           natural_scroll = true;
           clickfinger_behavior = true;
         };
-      };
 
+
+      };
     };
   };
   systemd.user.targets.hyprland-session.Unit.Wants =

@@ -1,5 +1,5 @@
 # - ## System
-#- 
+#-
 #- Usefull quick scripts
 #-
 #- - `menu` - Open wofi with drun mode.
@@ -14,7 +14,7 @@ let
       if pgrep wofi; then
       	pkill wofi
       else
-      	wofi --show drun
+      	wofi -p "Apps" --show drun
       fi
     '';
 
@@ -32,7 +32,7 @@ let
           "󰿅 Shutdown"
         )
 
-        selected=$(printf '%s\n' "''${options[@]}" | wofi --dmenu)
+        selected=$(printf '%s\n' "''${options[@]}" | wofi -p "Powermenu" --dmenu)
         selected=''${selected:2}
 
         case $selected in

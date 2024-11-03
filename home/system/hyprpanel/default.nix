@@ -115,10 +115,10 @@ in {
 
           "bar.launcher.icon": "",
           "theme.bar.transparent": ${if transparent then "true" else "false"},
-          "bar.workspaces.show_numbered": false,
-          "bar.workspaces.workspaces": 5,
+          "bar.workspaces.show_numbered": true,
+          "bar.workspaces.workspaces": 4,
           "bar.workspaces.monitorSpecific": true,
-          "bar.workspaces.hideUnoccupied": false,
+          "bar.workspaces.hideUnoccupied": true,
           "bar.windowtitle.label": true,
           "bar.volume.label": false,
           "bar.network.truncation_size": 12,
