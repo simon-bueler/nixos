@@ -123,7 +123,7 @@ in {
           "bar.volume.label": false,
           "bar.network.truncation_size": 12,
           "bar.bluetooth.label": false,
-          "bar.clock.format": "%a %b %d  %I:%M %p",
+          "bar.clock.format": "%a %b %d  %H:%M",
           "bar.notifications.show_total": true,
           "theme.notification.border_radius": "${toString rounding}px",
           "theme.osd.enable": true,
@@ -223,7 +223,8 @@ in {
           "theme.bar.menus.menu.media.card.color": "${background-alt}",
           "theme.bar.menus.menu.media.card.tint": 90,
           "bar.customModules.updates.pollingInterval": 1440000,
-          "bar.media.show_active_only": true
+          "bar.media.show_active_only": true,
+          "menus.clock.time.military": true
         }
       '';
   };
