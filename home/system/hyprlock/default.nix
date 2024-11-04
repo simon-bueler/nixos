@@ -39,7 +39,7 @@ in {
         # Time
         {
           monitor = "";
-          text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
+          text = ''cmd[update:1000] echo "<span>$(date +"%H:%M")</span>"'';
           color = foreground;
           font_size = 160;
           font_family = "steelfish outline regular";

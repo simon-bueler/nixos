@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ pkgs, inputs, config, ... }: {
   imports = [
     ../../nixos/audio.nix
     ../../nixos/auto-upgrade.nix
@@ -26,6 +26,10 @@
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
+
+  environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${system}".specific
+  ];
 
   # Don't touch this
   system.stateVersion = "24.05";

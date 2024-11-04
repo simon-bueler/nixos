@@ -5,7 +5,7 @@
 
     # Programs
     ../../home/programs/kitty
-    ../../home/programs/qutebrowser
+    #../../home/programs/qutebrowser
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/yazi
@@ -22,7 +22,7 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-    # ../../home/system/hyprswitch
+     ../../home/system/hyprswitch
     ../../home/system/gtk
     ../../home/system/wofi
     #../../home/system/batsignal
@@ -30,6 +30,7 @@
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/clipman
+    ../../home/system/syncthing
 
   ];
 
@@ -39,12 +40,12 @@
 
     packages = with pkgs; [
       # Apps
-      brave
-      discord
+      vesktop
       vlc
       feishin
       element-desktop
       freefilesync
+      streamcontroller
 
       # Dev
       # go
