@@ -535,15 +535,16 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1730761284,
-        "narHash": "sha256-WJWIlECwr9tyNM1+lIcY3hfaKt7ZjWBr4rXOQ2mDc8Q=",
-        "owner": "simon-bueler",
+        "lastModified": 1730817849,
+        "narHash": "sha256-mkzMJzWdR34eFD3TJxryExWiLDp+gMTZYYNog0n+BLM=",
+        "owner": "h3rmt",
         "repo": "hyprswitch",
-        "rev": "88402506a7038f3d213bad108a6673cc2e6ce977",
+        "rev": "94eed40113d01a69c29b9e587adfca158b9c0c0a",
         "type": "github"
       },
       "original": {
-        "owner": "simon-bueler",
+        "owner": "h3rmt",
+        "ref": "release",
         "repo": "hyprswitch",
         "type": "github"
       }

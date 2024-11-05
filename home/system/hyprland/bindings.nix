@@ -9,8 +9,7 @@
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
-      "$mod, tab, exec, hyprswitch gui --mod-key $mod --key tab --close mod-key-release --reverse-key=mod=shift && hyprswitch dispatch"
-      "$shiftMod, tab, exec, hyprswitch gui --mod-key $mod --key tab --close mod-key-release --reverse-key=mod=shift && hyprswitch dispatch -r"
+      "$mod, tab, exec, hyprswitch simple --sort-recent"
 
       "$mod,Q, killactive," # Close window
       "$mod,T, togglefloating," # Toggle Floating

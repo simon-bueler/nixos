@@ -30,8 +30,7 @@
 
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    #hyprswitch.url = "github:h3rmt/hyprswitch/release";
-    hyprswitch.url = "github:simon-bueler/hyprswitch";
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
