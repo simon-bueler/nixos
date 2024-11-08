@@ -116,7 +116,7 @@ in {
           "bar.launcher.icon": "",
           "theme.bar.transparent": ${if transparent then "true" else "false"},
           "bar.workspaces.show_numbered": true,
-          "bar.workspaces.workspaces": 4,
+          "bar.workspaces.workspaces": 1,
           "bar.workspaces.monitorSpecific": true,
           "bar.workspaces.hideUnoccupied": true,
           "bar.windowtitle.label": true,

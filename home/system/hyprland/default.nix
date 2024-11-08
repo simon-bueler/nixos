@@ -18,6 +18,7 @@ in {
     qt6.qtwayland
     libsForQt5.qt5ct
     qt6ct
+    kdePackages.qt6gtk2
     hyprshot
     hyprpicker
     swappy
@@ -64,6 +65,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
+        #"SSH_AUTH_SOCK,/run/user/1000/keyring/ssh"
         "MOZ_ENABLE_WAYLAND,1"
         "ANKI_WAYLAND,1"
         "DISABLE_QT5_COMPAT,0"

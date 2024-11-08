@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ inputs, pkgs, config, ... }: {
 
   imports = [
     ./variables.nix
@@ -31,6 +31,7 @@
     ../../home/system/udiskie
     ../../home/system/clipman
     ../../home/system/syncthing
+    ../../home/system/keychain
 
   ];
 
@@ -46,6 +47,8 @@
       element-desktop
       freefilesync
       streamcontroller
+      inputs.zen-browser.packages."${system}".specific
+
 
       # Dev
       # go
@@ -79,11 +82,10 @@
     file.".profile_picture.png" = { source = ./profile_picture.jpeg; };
 
     # Import my wallpaper, used by the hyprpanel dashboard
-    #file.".wallpaper.png" = { source = ./wallpaper.png; };
+
 
     # Don't touch this
     stateVersion = "24.05";
   };
-
   programs.home-manager.enable = true;
 }

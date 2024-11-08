@@ -13,14 +13,13 @@ in {
       xkb.layout = keyboardLayout;
       xkb.variant = "";
     };
-    gnome.gnome-keyring.enable = true;
   };
   console.keyMap = consoleLayout;
 
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    EDITOR = "nvim";
+    EDITOR = "lvim";
   };
 
   services.libinput.enable = true;
@@ -51,7 +50,10 @@ in {
     xdg-utils
     wget
     curl
+    seahorse
   ];
+
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.seahorse.out}/libexec/seahorse/ssh-askpass";
 
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
