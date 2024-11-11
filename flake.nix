@@ -28,7 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    # FIXME: This is a temporary fix until the PR is merged
+    stylix.url = "github:danth/stylix/9cad2b044a6de7502235b66d78a9df6efcf0ddcf";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
