@@ -51,6 +51,7 @@
 
 
       # Dev
+      nixd
       # go
       # nodejs
       # python3
