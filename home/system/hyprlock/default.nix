@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 let
   foreground = "rgba(216, 222, 233, 0.70)";
   imageStr = toString config.stylix.image;
@@ -14,7 +14,7 @@ in {
       };
 
       # BACKGROUND
-      background = {
+      background = lib.mkForce {
         monitor = "";
         path = imageStr;
         blur_passes = 0;
@@ -65,7 +65,7 @@ in {
       ];
 
       # INPUT FIELD
-      input-field = [{
+      input-field = lib.mkForce [{
         monitor = "";
         size = "300, 60";
         outline_thickness = 2;
