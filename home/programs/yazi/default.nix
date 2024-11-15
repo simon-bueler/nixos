@@ -14,7 +14,7 @@
       opener = {
         play = [
           {
-            run = "vlc";
+            run = "vlc \"$@\"";
           }
         ];
       };
