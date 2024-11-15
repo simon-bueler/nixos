@@ -67,6 +67,8 @@
       btop
       lunarvim
       mosh
+      spotdl
+      mediainfo
 
       # Just cool
       peaclock

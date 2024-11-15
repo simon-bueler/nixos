@@ -11,6 +11,13 @@
         sort_dir_first = true;
         sort_reverse = true;
       };
+      opener = {
+        play = [
+          {
+            run = "vlc";
+          }
+        ];
+      };
     };
   };
 }
