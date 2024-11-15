@@ -13,6 +13,7 @@ in {
       xkb.layout = keyboardLayout;
       xkb.variant = "";
     };
+    gnome.gnome-keyring.enable = true;
   };
   console.keyMap = consoleLayout;
 
