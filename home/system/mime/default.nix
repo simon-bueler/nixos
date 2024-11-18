@@ -27,6 +27,8 @@
       "x-scheme-handler/https" = "zen.desktop";
       "text/html" = "zen.desktop";
       "application/pdf" = "zathura.desktop";
+      "audio/mp4" = "umpv.desktop";
+      "audio/x-mpegurl" = "umpv.desktop";
     };
   };
 }

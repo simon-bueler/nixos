@@ -9,7 +9,7 @@ let
     if [[ $2 == "swappy" ]];then
       folder="/tmp"
     else
-      folder="$HOME/Pictures/screenshots"
+      folder="$HOME/Bilder/screenshots"
     fi
     filename="$(date +%Y-%m-%d_%H:%M:%S).png"
     mode="region" # Default to region
@@ -23,7 +23,7 @@ let
     ${pkgs.hyprshot}/bin/hyprshot -m $mode -o $folder -f $filename -s || exit 1
 
     if [[ $2 == "swappy" ]];then
-      ${pkgs.swappy}/bin/swappy -f "$folder/$filename" -o "$HOME/Pictures/screenshots/$filename"
+      ${pkgs.swappy}/bin/swappy -f "$folder/$filename" -o "$HOME/Bilder/screenshots/$filename"
       exit 0
     fi
 

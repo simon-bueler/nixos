@@ -12,6 +12,7 @@
     ../../home/programs/markdown
     ../../home/programs/thunar
     ../../home/programs/zed-editor
+    ../../home/programs/mpv
 
     # Scripts
     ../../home/scripts # All scripts
@@ -42,7 +43,6 @@
     packages = with pkgs; [
       # Apps
       vesktop
-      vlc
       feishin
       element-desktop
       freefilesync

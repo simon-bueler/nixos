@@ -11,10 +11,18 @@
         sort_dir_first = true;
         sort_reverse = true;
       };
-      opener = {
-        play = [
+      # opener = {
+      #   play = [
+      #     {
+      #       run = "vlc \"$@\"";
+      #     }
+      #   ];
+      # };
+      open = {
+        prepend_rules = [
           {
-            run = "vlc \"$@\"";
+           name = "*.m3u8";
+           use = "play";
           }
         ];
       };
