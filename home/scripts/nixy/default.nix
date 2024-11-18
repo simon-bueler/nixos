@@ -28,7 +28,7 @@ let
           "󰚰;Update;nixy update"
           ";Collect Garbage;nixy gc"
           "󰍜;Clean Boot Menu;nixy cb"
-          "󰌌;Hyprland Keybindings;nvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
+          "󰌌;Hyprland Keybindings;lvim ${configDirectory}/docs/KEYBINDINGS-HYPRLAND.md"
         )
 
         # Apply default icons if empty:
@@ -58,9 +58,6 @@ let
         cd ${configDirectory} && sudo nix-collect-garbage -d
       elif [[ $1 == "cb" ]];then
         sudo /run/current-system/bin/switch-to-configuration boot
-      elif [[ $1 == "remote" ]];then
-        cd ~/.config/nixos && git add . && git commit -m "update" && git push
-        ssh jack -S -C "cd /home/hadi/.config/nixos && git pull && sudo -S nixos-rebuild switch --flake ~/.config/nixos#jack"
       else
         echo "Unknown argument"
       fi

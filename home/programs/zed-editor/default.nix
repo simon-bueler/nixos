@@ -29,6 +29,11 @@
         path = "${pkgs.nodejs}/bin/node";
         npm_path = "${pkgs.nodejs}/bin/npm";
       };
+      languages = {
+        "Nix" = {
+            language_servers = [ "nixd" "!nil" ];
+    		};
+    	};
     };
   };
 }
