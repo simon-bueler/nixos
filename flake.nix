@@ -11,16 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     lix-module = {
           url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
           inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
-    plugin-markdown = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
     };
 
     disko = {
@@ -28,9 +22,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
