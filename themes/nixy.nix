@@ -37,7 +37,7 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }; #pkgs.nerd-fonts.jetbrains-mono;
+        package = pkgs.nerd-fonts.jetbrains-mono; #pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrains Mono Nerd Font";
       };
       sansSerif = {

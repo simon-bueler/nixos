@@ -15,9 +15,9 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
-      # nerd-fonts.fira-code
-      # nerd-fonts.meslo-lg
+      #(nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.meslo-lg
       openmoji-color
       twemoji-color-font
       inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
