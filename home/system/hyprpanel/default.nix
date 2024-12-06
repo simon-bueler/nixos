@@ -139,8 +139,8 @@ in {
           "menus.dashboard.powermenu.confirmation": false,
 
           "menus.dashboard.shortcuts.left.shortcut1.icon": "",
-          "menus.dashboard.shortcuts.left.shortcut1.command": "brave",
-          "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Brave-Browser",
+          "menus.dashboard.shortcuts.left.shortcut1.command": "zen",
+          "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen-Browser",
           "menus.dashboard.shortcuts.left.shortcut2.icon": "󰅶",
           "menus.dashboard.shortcuts.left.shortcut2.command": "caffeine",
           "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Caffeine",
