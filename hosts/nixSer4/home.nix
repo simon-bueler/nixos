@@ -69,6 +69,7 @@
       mosh
       spotdl
       mediainfo
+      moonlight-qt
 
       # Just cool
       peaclock
