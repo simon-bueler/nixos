@@ -47,7 +47,7 @@
       element-desktop
       freefilesync
       streamcontroller
-      inputs.zen-browser.packages."${system}".specific
+      inputs.zen-browser.packages."${system}".default
 
 
       # Dev

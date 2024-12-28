@@ -42,6 +42,7 @@ in {
               "right": [
                 "systray",
                 "network",
+                "hypridle",
                 "volume",
                 "bluetooth",
                 "battery",
