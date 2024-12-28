@@ -8,6 +8,7 @@
     thunar-volman
   ];
 
+  # View settings
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
   <?xml version="1.0" encoding="UTF-8"?>
 
@@ -43,4 +44,26 @@
     <property name="last-details-view-column-order" type="string" value="THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_SIZE_IN_BYTES,THUNAR_COLUMN_TYPE,THUNAR_COLUMN_LOCATION,THUNAR_COLUMN_GROUP,THUNAR_COLUMN_MIME_TYPE,THUNAR_COLUMN_DATE_CREATED,THUNAR_COLUMN_OWNER,THUNAR_COLUMN_PERMISSIONS,THUNAR_COLUMN_DATE_ACCESSED,THUNAR_COLUMN_RECENCY,THUNAR_COLUMN_DATE_DELETED"/>
   </channel>
   '';
+  home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".force = true;
+
+  #custom action settings > change Terminal for open in Terminal option
+  home.file.".config/Thunar/uca.xml".text = ''
+  <?xml version="1.0" encoding="UTF-8"?>
+  <actions>
+  <action>
+      <icon>utilities-terminal</icon>
+      <name>Terminal hier öffnen</name>
+      <submenu></submenu>
+      <unique-id>1730569995126542-1</unique-id>
+      <command>kitty %f</command>
+      <description>Beispiel für eine eigene Aktion</description>
+      <range></range>
+      <patterns>*</patterns>
+      <startup-notify/>
+      <directories/>
+  </action>
+  </actions>
+  '';
+  home.file.".config/Thunar/uca.xml".force = true;
+
 }

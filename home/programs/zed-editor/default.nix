@@ -20,6 +20,7 @@
       theme = {
         mode = "dark";
         dark = "One Dark";
+        light = "One Light";
       };
       soft_wrap = "editor_width";
       experimental.theme_overrides =  {
