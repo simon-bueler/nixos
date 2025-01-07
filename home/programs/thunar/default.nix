@@ -42,6 +42,7 @@
     <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
     <property name="last-details-view-column-widths" type="string" value="50,50,162,50,50,50,50,50,175,50,50,81,50,936"/>
     <property name="last-details-view-column-order" type="string" value="THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_SIZE_IN_BYTES,THUNAR_COLUMN_TYPE,THUNAR_COLUMN_LOCATION,THUNAR_COLUMN_GROUP,THUNAR_COLUMN_MIME_TYPE,THUNAR_COLUMN_DATE_CREATED,THUNAR_COLUMN_OWNER,THUNAR_COLUMN_PERMISSIONS,THUNAR_COLUMN_DATE_ACCESSED,THUNAR_COLUMN_RECENCY,THUNAR_COLUMN_DATE_DELETED"/>
+    <property name="last-toolbar-items" type="string" value="menu:1,back:1,forward:0,open-parent:0,open-home:0,undo:0,redo:0,zoom-in:0,zoom-out:0,zoom-reset:0,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,toggle-split-view:0,location-bar:1,reload:0,search:1,uca-action-1710183590071525-1:0,new-tab:0,new-window:0,view-switcher:0"/>
   </channel>
   '';
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".force = true;

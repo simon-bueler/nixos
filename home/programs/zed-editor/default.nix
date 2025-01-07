@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.zed-editor = {
     enable = true;
     extensions = [ "nix" ];
@@ -15,9 +15,9 @@
          };
          version = "2";
       };
-      ui_font_size = 16;
-      buffer_font_size = 16;
-      theme = {
+      ui_font_size = lib.mkForce 16;
+      buffer_font_size = lib.mkForce 16;
+      theme = lib.mkForce {
         mode = "dark";
         dark = "One Dark";
         light = "One Light";
