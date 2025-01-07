@@ -23,7 +23,7 @@
     };
 
     autoUpgrade = false;
-    autoGarbageCollector = false;
+    autoGarbageCollector = true;
 
     theme = {
       rounding = 15;
