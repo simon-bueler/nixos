@@ -1,10 +1,11 @@
 # - ## Hyprpanel
-#- 
-#- Quick scripts to toggle, reload and kill hyprpanel.
 #-
-#- - `hyprpanel-toggle` - Toggle hyprpanel.
+#- Quick scripts to toggle, reload, hide & show hyprpanel.
+#-
+#- - `hyprpanel-toggle` - Toggle hyprpanel (hide/show).
+#- - `hyprpanel-show` - Show hyprpanel.
+#- - `hyprpanel-hide` - Hide hyprpanel.
 #- - `hyprpanel-reload` - Reload hyprpanel.
-#- - `hyprpanel-kill` - Kill hyprpanel.
 { pkgs, ... }:
 let
   hyprpanel-toggle = pkgs.writeShellScriptBin "hyprpanel-toggle" ''
@@ -15,22 +16,22 @@ let
   '';
 
   hyprpanel-hide = pkgs.writeShellScriptBin "hyprpanel-hide" ''
-    status=$(hyprpanel -r "isWindowVisible('bar-0')")
+    status=$(hyprpanel isWindowVisible bar-0)
     if [[ $status == "true" ]]; then
       hyprpanel -t bar-0
     fi
-    status=$(hyprpanel -r "isWindowVisible('bar-1')")
+    status=$(hyprpanel isWindowVisible bar-1)
     if [[ $status == "true" ]]; then
       hyprpanel -t bar-1
     fi
   '';
 
   hyprpanel-show = pkgs.writeShellScriptBin "hyprpanel-show" ''
-    status=$(hyprpanel -r "isWindowVisible('bar-0')")
+    status=$(hyprpanel isWindowVisible bar-0)
     if [[ $status == "false" ]]; then
       hyprpanel -t bar-0
     fi
-    status=$(hyprpanel -r "isWindowVisible('bar-1')")
+    status=$(hyprpanel isWindowVisible bar-1)
     if [[ $status == "false" ]]; then
       hyprpanel -t bar-1
     fi
