@@ -29,6 +29,15 @@
       "application/pdf" = "zathura.desktop";
       "audio/mp4" = "umpv.desktop";
       "audio/x-mpegurl" = "umpv.desktop";
+      "x-scheme-handler/chrome" = "zen.desktop";
+      "application/x-extension-htm" = "zen.desktop";
+      "application/x-extension-html" = "zen.desktop";
+      "application/x-extension-shtml" = "zen.desktop";
+      "application/xhtml+xml" = "zen.desktop";
+      "application/x-extension-xhtml" = "zen.desktop";
+      "application/x-extension-xht" = "zen.desktop";
+      "x-scheme-handler/about" = "zen.desktop";
+      "x-scheme-handler/unknown" = "zen.desktop";
     };
   };
 }

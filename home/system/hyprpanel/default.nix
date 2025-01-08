@@ -40,7 +40,7 @@ in {
             "hypridle"
             "volume"
             "bluetooth"
-            "battery"
+            #"battery"
             "clock"
             "notifications"
         ];
