@@ -169,6 +169,7 @@ in {
     "bar.media.show_active_only" = true;
     "menus.clock.time.military" = true;
     "theme.bar.location" = "top";
+    "bar.customModules.hypridle.rightClick" = "caffeine";
     };
   };
 }
