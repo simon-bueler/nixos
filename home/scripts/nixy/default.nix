@@ -5,7 +5,7 @@
 #- - `nixy` - UI wizard to manage the system.
 #- - `nixy rebuild` - Rebuild the system.
 #- - `nixy ...` - ... see the script for more commands.
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, ... }:
 let
 
   configDirectory = config.var.configDirectory;

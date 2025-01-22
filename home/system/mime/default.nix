@@ -38,6 +38,7 @@
       "application/x-extension-xht" = "zen.desktop";
       "x-scheme-handler/about" = "zen.desktop";
       "x-scheme-handler/unknown" = "zen.desktop";
+      "inode/directory" = "thunar.desktop";
     };
   };
 }

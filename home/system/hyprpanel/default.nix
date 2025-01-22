@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, config, ... }:
 let
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";

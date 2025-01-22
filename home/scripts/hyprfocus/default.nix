@@ -16,7 +16,7 @@ let
       hyprpanel-hide
       hyprctl keyword "general:border_size" 1
       hyprctl keyword "decoration:rounding" 0
-      hyprctl keyword "decoration:drop_shadow" false
+      hyprctl keyword "decoration:shadow:enabled" false
       hyprctl keyword "decoration:inactive_opacity" 0.98
       hyprctl keyword "decoration:active_opacity" 1
       echo "1" > /tmp/hyprfocus
@@ -31,7 +31,7 @@ let
     '';
 
   hyprfocus-toggle = pkgs.writeShellScriptBin "hyprfocus-toggle"
-    # bash 
+    # bash
     ''
       if [ -f /tmp/hyprfocus ]; then
         hyprfocus-off
