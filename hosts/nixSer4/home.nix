@@ -5,7 +5,6 @@
 
     # Programs
     ../../home/programs/kitty
-    #../../home/programs/qutebrowser
     ../../home/programs/shell
     ../../home/programs/git
     ../../home/programs/yazi
@@ -24,7 +23,6 @@
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
      ../../home/system/hyprswitch
-    #../../home/system/gtk
     ../../home/system/wofi
     #../../home/system/batsignal
     ../../home/system/zathura
@@ -43,7 +41,7 @@
     packages = with pkgs; [
       # Apps
       vesktop
-      feishin
+      #feishin
       element-desktop
       freefilesync
       streamcontroller
