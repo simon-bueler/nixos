@@ -13,9 +13,7 @@ in {
       description = "${username} account";
       extraGroups = [ "networkmanager" "wheel" ];
       hashedPassword = password;
-      openssh.authorizedKeys.keys = [
-       sshAuthKey
-      ];
+      openssh.authorizedKeys.keys = sshAuthKey;
     };
   };
 }

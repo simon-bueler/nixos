@@ -31,6 +31,8 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    #For Raspberry Pi
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs@{ nixpkgs, lix-module, ... }: {
@@ -64,6 +66,22 @@
             inputs.stylix.nixosModules.stylix
             ./hosts/nixSer4/configuration.nix
           ];
+        };
+      #build config locally
+      nixpi =
+        nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+            {
+                nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+                _module.args = { inherit inputs; };
+            }
+            lix-module.nixosModules.default
+            inputs.nixos-hardware.nixosModules.raspberry-pi-4
+            inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+            ./hosts/nixpi/configuration.nix
+            ];
         };
     };
   };
