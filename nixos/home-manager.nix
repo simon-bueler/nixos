@@ -4,7 +4,4 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
   };
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 }

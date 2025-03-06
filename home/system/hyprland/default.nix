@@ -19,6 +19,7 @@ in {
     libsForQt5.qt5ct
     qt6ct
     kdePackages.qt6gtk2
+    hyprland-qtutils
     hyprshot
     hyprpicker
     swappy
@@ -53,7 +54,7 @@ in {
         force_zero_scaling = true;
       };
 
-      exec-once = [ "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" ];
+      exec-once = [ "dbus-update-activation-environment --systemd --all" ];
 
       monitor = [
         # "Virtual-1,1440x1050@60,auto,1"

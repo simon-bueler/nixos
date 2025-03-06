@@ -13,7 +13,7 @@
     };
 
     lix-module = {
-          url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+          url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
           inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,7 +24,6 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
 
     stylix.url = "github:danth/stylix";
