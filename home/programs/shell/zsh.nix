@@ -15,7 +15,7 @@
     initExtraFirst = ''
       bindkey -e
 
-      ${pkgs.fastfetch + "/bin/fastfetch -l nix_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
+      ${pkgs.fastfetch + "/bin/fastfetch -l NixOS_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
 
       function sesh-sessions() {
         session=$(sesh list -t -c | fzf --height 70% --reverse)
