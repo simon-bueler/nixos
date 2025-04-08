@@ -28,23 +28,25 @@ in {
     hyprland.enable = true;
     overwrite.enable = true;
     overlay.enable = true;
-    layout = {
-    "bar.layouts" = {
-        "0" = {
-        "left" = [ "dashboard" "workspaces" "windowtitle" ];
-        "middle" = [ "media" ];
-        "right" = [
-            "systray"
-            "network"
-            "hypridle"
-            "volume"
-            "bluetooth"
-            #"battery"
-            "clock"
-            "notifications"
-        ];
+    settings = {
+        layout = {
+        "bar.layouts" = {
+            "0" = {
+            "left" = [ "dashboard" "workspaces" "windowtitle" ];
+            "middle" = [ "media" ];
+            "right" = [
+                "systray"
+                "network"
+                "hypridle"
+                "volume"
+                "bluetooth"
+                #"battery"
+                "clock"
+                "notifications"
+            ];
+            };
         };
-    };
+        };
     };
     override = {
     "theme.font.name" = "${font}";

@@ -21,6 +21,9 @@ in {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "lvim";
+    TERMINAL = "kitty";
+    TERM = "kitty";
+    BROWSER = "zen";
   };
 
   services.libinput.enable = true;
