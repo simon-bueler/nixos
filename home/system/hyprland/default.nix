@@ -18,7 +18,6 @@ in {
     qt6.qtwayland
     libsForQt5.qt5ct
     qt6ct
-    kdePackages.qt6gtk2
     hyprland-qtutils
     hyprshot
     hyprpicker
