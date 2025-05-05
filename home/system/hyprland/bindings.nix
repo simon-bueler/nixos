@@ -18,8 +18,10 @@
       "$mod,right, movefocus, r" # Move focus Right
       "$mod,up, movefocus, u" # Move focus Up
       "$mod,down, movefocus, d" # Move focus Down
-      "$shiftMod,up, focusmonitor, -1" # Focus previous monitor
-      "$shiftMod,down, focusmonitor, 1" # Focus next monitor
+      "$altMod,up, layoutmsg, orientationtop" # Master top
+      "$altMod,down, layoutmsg, orientationbottom" # Master bottom
+      "$altMod,left, layoutmsg, orientationleft" # Master left
+      "$altMod,right, layoutmsg, orientationright" # Master right
       "$shiftMod,left, layoutmsg, addmaster" # Add to master
       "$shiftMod,right, layoutmsg, removemaster" # Remove from master
 
@@ -31,8 +33,6 @@
       "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
-      "$mod,F2, exec, night-shift" # Toggle night shift
-      "$mod,F3, exec, night-shift" # Toggle night shift
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [

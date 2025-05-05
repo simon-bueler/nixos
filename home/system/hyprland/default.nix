@@ -48,6 +48,7 @@ in {
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
+      "$altMod" = "SUPER_ALT";
 
       xwayland = {
         force_zero_scaling = true;
