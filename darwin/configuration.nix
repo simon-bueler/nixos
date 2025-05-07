@@ -4,7 +4,7 @@ let
 in {
   imports = [
     ./variables.nix
-
+    ./homebrew.nix
     ../themes/nixy.nix
   ];
   users.users.${username} = {
@@ -13,7 +13,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    mkalias
+
   ];
 
   # Necessary for using flakes on this system.
@@ -29,29 +29,20 @@ in {
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
 
-  # Create Mac Alias aka findable System entries
-  system.activationScripts.applications.text = let
-    env = pkgs.buildEnv {
-      name = "system-applications";
-      paths = config.environment.systemPackages;
-      pathsToLink = "/Applications";
-    };
-  in
-    pkgs.lib.mkForce ''
-    # Set up applications.
-    echo "setting up /Applications..." >&2
-    rm -rf /Applications/Nix\ Apps
-    mkdir -p /Applications/Nix\ Apps
-    find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-    while read -r src; do
-      app_name=$(basename "$src")
-      echo "copying $src" >&2
-      ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-    done
-        '';
-
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  nix-homebrew = {
+    # Install Homebrew under the default prefix
+    enable = true;
+
+    # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+    enableRosetta = true;
+
+    # User owning the Homebrew prefix
+    user = "${username}";
+
+  };
 
   home-manager.users."${config.var.username}" = import ./home.nix;
   # To enable it for all users:

@@ -16,6 +16,9 @@
     };
 
     mac-app-util.url = "github:hraban/mac-app-util";
+
+    #Homebrew
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, ... }:{
@@ -27,6 +30,7 @@
         inputs.stylix.darwinModules.stylix
           ./configuration.nix
         inputs.home-manager.darwinModules.home-manager
+        inputs.nix-homebrew.darwinModules.nix-homebrew
 ];
       specialArgs = { inherit inputs; };
     };
