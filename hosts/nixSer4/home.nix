@@ -6,6 +6,7 @@
     # Programs
     ../../home/programs/kitty
     ../../home/programs/shell
+    ../../home/programs/shell/zsh.nix
     ../../home/programs/git
     ../../home/programs/yazi
     ../../home/programs/markdown

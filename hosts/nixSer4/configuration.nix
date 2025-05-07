@@ -19,6 +19,7 @@
     #../../nixos/vm.nix
 
     ../../themes/nixy.nix
+    ../../themes/nixy.nixos.nix
 
     ./hardware-configuration.nix
     ./disko-config.nix

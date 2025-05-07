@@ -15,7 +15,7 @@
     initContent = lib.mkBefore ''
       bindkey -e
 
-      ${pkgs.fastfetch + "/bin/fastfetch -l NixOS_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
+      ${pkgs.fastfetch + "/bin/fastfetch -l macos_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
 
       zstyle ':fzf-tab:*' fzf-pad 8
     '';
@@ -48,10 +48,10 @@
       sl = "ls";
       cat = "bat";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
-      icat = "${pkgs.kitty}/bin/kitty +kitten icat";
+      # icat = "${pkgs.kitty}/bin/kitty +kitten icat";
 
-      ssh = "${pkgs.kitty}/bin/kitty +kitten ssh";
-      diff = "${pkgs.kitty}/bin/kitty +kitten diff";
+      # ssh = "${pkgs.kitty}/bin/kitty +kitten ssh";
+      # diff = "${pkgs.kitty}/bin/kitty +kitten diff";
 
       wireguard-import = "nmcli connection import type wireguard file";
 
