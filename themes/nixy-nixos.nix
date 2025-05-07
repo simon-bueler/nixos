@@ -7,5 +7,5 @@
       name = "Bibata-Modern-Ice";
       size = 24;
     };
-
+  };
 }
