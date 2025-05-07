@@ -14,7 +14,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     mkalias
-    wezterm
   ];
 
   # Necessary for using flakes on this system.
