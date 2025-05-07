@@ -34,6 +34,7 @@ in {
     dock.persistent-apps = [
       "/System/Applications/Mail.app"
       "/System/Applications/Messages.app"
+      "/System/Applications/System Settings.app"
       "/Applications/Zen Browser.app"
       "${pkgs.wezterm}/Applications/Zed.app"
       "${pkgs.wezterm}/Applications/WezTerm.app"
