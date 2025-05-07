@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }: {
+{ ... }: {
   homebrew = {
     enable =true;
     brews = [
@@ -11,5 +11,7 @@
       #"Name" = AppStoreID; --> mas search NAME
     };
     onActivation.cleanup = "zap";
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
   };
 }

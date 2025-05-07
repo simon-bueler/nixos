@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, config, nix-darwin, nixpkgs, ... }:
+{ pkgs, inputs, config, ... }:
 let
   username = config.var.username;
 in {
@@ -13,7 +13,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-
+    zed-editor
   ];
 
   # Necessary for using flakes on this system.
@@ -28,6 +28,23 @@ in {
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
+
+  # MacOS settings
+  system.defaults = {
+    dock.persistent-apps = [
+      "/System/Applications/Mail.app"
+      "/System/Applications/Messages.app"
+      "/Applications/Zen Browser.app"
+      "${pkgs.wezterm}/Applications/Zed.app"
+      "${pkgs.wezterm}/Applications/WezTerm.app"
+    ];
+    finder.FXPreferredViewStyle = "clmv";
+    loginwindow.GuestEnabled = false;
+    NSGlobalDomain.AppleICUForce24HourTime = true;
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    NSGlobalDomain.KeyRepeat = 2;
+    NSGlobalDomain.AppleShowAllExtensions = true;
+  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";

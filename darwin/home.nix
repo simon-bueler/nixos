@@ -1,15 +1,18 @@
-{ inputs, pkgs, config, ... }: {
+{ pkgs, config, ... }: {
   imports = [
     ./variables.nix
     ../home/programs/shell
     ../home/programs/shell/zsh-darwin.nix
     ../home/programs/wezterm
+    ../home/programs/zed-editor
   ];
   home = {
     inherit (config.var) username;
     homeDirectory = "/Users/" + config.var.username;
 
     packages = with pkgs; [
+      # Dev
+      nixd
     ];
 
     # Don't touch this

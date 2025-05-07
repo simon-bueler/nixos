@@ -15,8 +15,8 @@
          };
          version = "2";
       };
-      ui_font_size = lib.mkForce 16;
-      buffer_font_size = lib.mkForce 16;
+      ui_font_size = lib.mkForce 14;
+      buffer_font_size = lib.mkForce 14;
       theme = lib.mkForce {
         mode = "dark";
         dark = "One Dark";
