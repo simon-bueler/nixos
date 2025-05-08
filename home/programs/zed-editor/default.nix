@@ -1,19 +1,22 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" ];
+    extensions = ["nix"];
 
-    userSettings =
-    {
+    userSettings = {
       features = {
         copilot = false;
       };
       assistant = {
-         default_model = {
-           provider = "zed.dev";
-           model = "claude-3-5-sonnet-latest";
-         };
-         version = "2";
+        default_model = {
+          provider = "zed.dev";
+          model = "claude-3-5-sonnet-latest";
+        };
+        version = "2";
       };
       ui_font_size = lib.mkForce 14;
       buffer_font_size = lib.mkForce 14;
@@ -23,7 +26,7 @@
         light = "One Light";
       };
       soft_wrap = "editor_width";
-      experimental.theme_overrides =  {
+      experimental.theme_overrides = {
         editor.document_highlight.read_background = "#777777FF";
       };
       node = {
@@ -32,9 +35,17 @@
       };
       languages = {
         "Nix" = {
-            language_servers = [ "nixd" "!nil" ];
-    		};
-    	};
+          language_servers = [
+            "nil"
+            "!nixd"
+          ];
+          formatter = {
+            external = {
+              command = "alejandra";
+            };
+          };
+        };
+      };
     };
   };
 }

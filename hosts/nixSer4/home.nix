@@ -50,7 +50,8 @@
 
 
       # Dev
-      nixd
+      nil
+      alejandra
       # go
       # nodejs
       # python3

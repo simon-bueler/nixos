@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./variables.nix
     ../home/programs/shell
@@ -12,13 +16,13 @@
 
     packages = with pkgs; [
       # Dev
-      nixd
+      nil
+      alejandra
     ];
 
     # Don't touch this
     stateVersion = "24.05";
   };
-
 
   programs.home-manager.enable = true;
 }
