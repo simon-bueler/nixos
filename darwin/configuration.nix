@@ -1,10 +1,16 @@
-{ pkgs, inputs, config, ... }:
-let
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}: let
   username = config.var.username;
 in {
   imports = [
     ./variables.nix
     ./homebrew.nix
+    ./mac.nix
+    ./aerospace.nix
     ../themes/nixy.nix
   ];
   users.users.${username} = {
@@ -19,7 +25,7 @@ in {
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  # Enable alternative shell support in nix-darwin.
+  # Enable ctrlernative shell support in nix-darwin.
   # programs.fish.enable = true;
 
   # Set Git commit hash for darwin-version.
@@ -28,24 +34,6 @@ in {
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
-
-  # MacOS settings
-  system.defaults = {
-    dock.persistent-apps = [
-      "/System/Applications/Mail.app"
-      "/System/Applications/Messages.app"
-      "/System/Applications/System Settings.app"
-      "/Applications/Zen Browser.app"
-      "${pkgs.wezterm}/Applications/Zed.app"
-      "${pkgs.wezterm}/Applications/WezTerm.app"
-    ];
-    finder.FXPreferredViewStyle = "clmv";
-    loginwindow.GuestEnabled = false;
-    NSGlobalDomain.AppleICUForce24HourTime = true;
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
-    NSGlobalDomain.KeyRepeat = 2;
-    NSGlobalDomain.AppleShowAllExtensions = true;
-  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -59,7 +47,6 @@ in {
 
     # User owning the Homebrew prefix
     user = "${username}";
-
   };
 
   home-manager.users."${config.var.username}" = import ./home.nix;

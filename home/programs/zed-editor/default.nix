@@ -39,9 +39,23 @@
             "nil"
             "!nixd"
           ];
-          formatter = {
-            external = {
-              command = "alejandra";
+          # formatter = {
+          #   external = {
+          #     command = "alejandra";
+          #   };
+        };
+      };
+    };
+    userSettings = {
+      lsp = {
+        nil = {
+          initialization_options = {
+            formatting.command = ["alejandra"];
+            nix = {
+              flake = {
+                autoArchive = true;
+                autoEvalInputs = true;
+              };
             };
           };
         };
