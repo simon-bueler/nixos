@@ -1,14 +1,16 @@
-{ ... }: {
+{...}: {
   homebrew = {
-    enable =true;
+    enable = true;
     brews = [
       "mas"
     ];
     casks = [
-      # "Name"
+      "fuse-t"
+      "cryptomator"
     ];
     masApps = {
       #"Name" = AppStoreID; --> mas search NAME
+      "WireGuard" = 1451685025;
     };
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

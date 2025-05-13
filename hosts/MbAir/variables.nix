@@ -1,5 +1,5 @@
-{ config, ... }: {
-  imports = [ ../nixos/variables-config.nix ];
+{config, ...}: {
+  imports = [../../nixos/variables-config.nix];
 
   config.var = {
     hostname = "MacBookAir";
@@ -7,7 +7,6 @@
     password = "$y$j9T$KWxCw6L0CU.CezL75MlL7.$eNq00ZxucT8ioeXcf995nULGlTzvFGXtv9IknpU6602";
     sshAuthKey = "";
     configDirectory = "/Users/" + config.var.username + "/.config/nixos"; # The path of the nixos configuration directory
-
 
     keyboardLayout = "ch";
     consoleLayout = "sg";

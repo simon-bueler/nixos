@@ -5,10 +5,10 @@
 }: {
   imports = [
     ./variables.nix
-    ../home/programs/shell
-    ../home/programs/shell/zsh-darwin.nix
-    ../home/programs/wezterm
-    ../home/programs/zed-editor
+    ../../home/programs/shell
+    ../../home/programs/shell/zsh-darwin.nix
+    ../../home/programs/wezterm
+    ../../home/programs/zed-editor
   ];
   home = {
     inherit (config.var) username;

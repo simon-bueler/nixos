@@ -13,8 +13,8 @@
     };
 
     lix-module = {
-          url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
-          inputs.nixpkgs.follows = "nixpkgs";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
@@ -30,19 +30,35 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    #For Raspberry Pi
+    ###For Raspberry Pi
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    ### Darwin
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # Make installed Packages available for search
+    mac-app-util.url = "github:hraban/mac-app-util";
+    #Homebrew
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = inputs@{ nixpkgs, lix-module, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    lix-module,
+    nix-darwin,
+    ...
+  }: {
     nixosConfigurations = {
-      nixvm = # CHANGEME
+      nixvm =
+        # CHANGEME
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             {
-              nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
-              _module.args = { inherit inputs; };
+              nixpkgs.overlays = [inputs.hyprpanel.overlay];
+              _module.args = {inherit inputs;};
             }
             lix-module.nixosModules.default
             inputs.disko.nixosModules.disko
@@ -51,37 +67,45 @@
             ./hosts/nixvm/configuration.nix # CHANGEME
           ];
         };
-      nixSer4 =
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
-              _module.args = { inherit inputs; };
-            }
-            lix-module.nixosModules.default
-            inputs.disko.nixosModules.disko
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/nixSer4/configuration.nix
-          ];
-        };
+      nixSer4 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            nixpkgs.overlays = [inputs.hyprpanel.overlay];
+            _module.args = {inherit inputs;};
+          }
+          lix-module.nixosModules.default
+          inputs.disko.nixosModules.disko
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/nixSer4/configuration.nix
+        ];
+      };
       #build config locally
-      nixpi =
-        nixpkgs.lib.nixosSystem {
-            system = "aarch64-linux";
-            modules = [
-            {
-                nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
-                _module.args = { inherit inputs; };
-            }
-            lix-module.nixosModules.default
-            inputs.nixos-hardware.nixosModules.raspberry-pi-4
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/nixpi/configuration.nix
-            ];
-        };
+      nixpi = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          {
+            nixpkgs.overlays = [inputs.hyprpanel.overlay];
+            _module.args = {inherit inputs;};
+          }
+          lix-module.nixosModules.default
+          inputs.nixos-hardware.nixosModules.raspberry-pi-4
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/nixpi/configuration.nix
+        ];
+      };
+    };
+    darwinConfigurations."mbair" = nix-darwin.lib.darwinSystem {
+      modules = [
+        inputs.mac-app-util.darwinModules.default
+        inputs.stylix.darwinModules.stylix
+        ./hosts/MbAir/configuration.nix
+        inputs.home-manager.darwinModules.home-manager
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+      ];
+      specialArgs = {inherit inputs;};
     };
   };
 }

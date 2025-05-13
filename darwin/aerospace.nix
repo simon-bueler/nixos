@@ -3,8 +3,6 @@
     enable = true;
     settings = {
       mode.main.binding = {
-        ctrl-t = "exec-and-forget wezterm start";
-
         cmd-h = []; # Disable "hide application"
         cmd-ctrl-h = []; # Disable "hide others"
 

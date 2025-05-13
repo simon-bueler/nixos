@@ -8,10 +8,10 @@
 in {
   imports = [
     ./variables.nix
-    ./homebrew.nix
-    ./mac.nix
-    ./aerospace.nix
-    ../themes/nixy.nix
+    ../../darwin/homebrew.nix
+    ../../darwin/mac.nix
+    ../../darwin/aerospace.nix
+    ../../themes/nixy.nix
   ];
   users.users.${username} = {
     name = "${username}";
