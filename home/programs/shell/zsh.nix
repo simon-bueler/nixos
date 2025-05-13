@@ -1,9 +1,10 @@
-{ pkgs, lib, config, ... }:
 {
-
-  home.packages = with pkgs; [ bat ripgrep tldr sesh fastfetch ];
-
-  home.sessionPath = [ "$HOME/go/bin" ];
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  home.packages = with pkgs; [bat ripgrep tldr fastfetch];
 
   programs.zsh = {
     enable = true;
@@ -12,21 +13,13 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
-    initContent = lib.mkBefore ''
-      bindkey -e
-
-      ${pkgs.fastfetch + "/bin/fastfetch -l NixOS_small -s OS:Kernel:Packages:Shell:WM:Memory:Disk"}
-
-      zstyle ':fzf-tab:*' fzf-pad 8
-    '';
-
     history = {
       ignoreDups = true;
       save = 10000;
       size = 10000;
     };
 
-    profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
+    profileExtra = lib.optionalString (config.home.sessionPath != []) ''
       export PATH="$PATH''${PATH:+:}${
         lib.concatStringsSep ":" config.home.sessionPath
       }"
@@ -47,14 +40,8 @@
       la = "ls -al";
       sl = "ls";
       cat = "bat";
-      open = "${pkgs.xdg-utils}/bin/xdg-open";
-      icat = "${pkgs.kitty}/bin/kitty +kitten icat";
-
-      ssh = "${pkgs.kitty}/bin/kitty +kitten ssh";
-      diff = "${pkgs.kitty}/bin/kitty +kitten diff";
 
       wireguard-import = "nmcli connection import type wireguard file";
-
 
       # git
       ga = "git add";
@@ -70,27 +57,27 @@
       gbr = "git branch";
     };
     plugins = [
-        {
+      {
         # will source zsh-autosuggestions.plugin.zsh
         name = "zsh-autosuggestions";
         src = pkgs.zsh-autosuggestions;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-        }
-        {
+      }
+      {
         name = "zsh-completions";
         src = pkgs.zsh-completions;
         file = "share/zsh-completions/zsh-completions.zsh";
-        }
-        {
+      }
+      {
         name = "zsh-syntax-highlighting";
         src = pkgs.zsh-syntax-highlighting;
         file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-        }
-        {
+      }
+      {
         name = "fzf-tab";
         src = pkgs.zsh-fzf-tab;
         file = "share/fzf-tab/fzf-tab.plugin.zsh";
-        }
+      }
     ];
   };
 }

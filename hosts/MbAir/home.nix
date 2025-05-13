@@ -18,6 +18,8 @@
       # Dev
       nil
       alejandra
+
+      lunarvim
     ];
 
     # Don't touch this

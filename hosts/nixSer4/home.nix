@@ -1,12 +1,16 @@
-{ inputs, pkgs, config, ... }: {
-
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./variables.nix
 
     # Programs
     ../../home/programs/kitty
     ../../home/programs/shell
-    ../../home/programs/shell/zsh.nix
+    ../../home/programs/shell/zsh-nixos.nix
     ../../home/programs/git
     ../../home/programs/yazi
     ../../home/programs/markdown
@@ -23,7 +27,7 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-     ../../home/system/hyprswitch
+    ../../home/system/hyprswitch
     ../../home/system/wofi
     #../../home/system/batsignal
     ../../home/system/zathura
@@ -32,7 +36,6 @@
     ../../home/system/clipman
     ../../home/system/syncthing
     ../../home/system/keychain
-
   ];
 
   home = {
@@ -47,7 +50,6 @@
       freefilesync
       streamcontroller
       inputs.zen-browser.packages."${system}".default
-
 
       # Dev
       nil
@@ -83,10 +85,9 @@
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
-    file.".profile_picture.png" = { source = ./profile_picture.jpeg; };
+    file.".profile_picture.png" = {source = ./profile_picture.jpeg;};
 
     # Import my wallpaper, used by the hyprpanel dashboard
-
 
     # Don't touch this
     stateVersion = "24.05";
