@@ -17,6 +17,7 @@
     ../../home/programs/thunar
     ../../home/programs/zed-editor
     ../../home/programs/mpv
+    ../../home/programs/streamcontroller
 
     # Scripts
     ../../home/scripts # All scripts
@@ -48,7 +49,6 @@
       feishin
       element-desktop
       freefilesync
-      streamcontroller
       inputs.zen-browser.packages."${system}".default
 
       # Dev
