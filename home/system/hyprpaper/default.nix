@@ -1,4 +1,10 @@
+# Hyprpaper is used to set the wallpaper on the system
 {
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: {
   # The wallpaper is set by stylix
   services.hyprpaper = {
     enable = true;
@@ -8,4 +14,10 @@
       splash_offset = 2.0;
     };
   };
+  systemd.user.services.hyprpaper.Unit.After =
+    lib.mkForce "graphical-session.target";
+
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "systemctl --user enable --now hyprpaper.service &"
+  ];
 }

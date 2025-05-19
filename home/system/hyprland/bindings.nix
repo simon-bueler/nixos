@@ -1,40 +1,42 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland.settings = {
-    bind = [
-      "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
-      "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-      "$mod,B, exec, zen"
-      # "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
-      "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
-      "$mod,X, exec, powermenu" # Powermenu
-      "$mod,SPACE, exec, menu" # Launcher
-      "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
-      "$mod, tab, exec, hyprswitch simple --sort-recent"
+    bind =
+      [
+        "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
+        "$mod,E, exec, uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
+        "$mod,B, exec, uwsm app -- zen-beta"
+        # "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
+        "$mod,L, exec, uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
+        "$mod,X, exec, powermenu" # Powermenu
+        "$mod,SPACE, exec, menu" # Launcher
+        "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
+        "$mod, tab, exec, hyprswitch simple --sort-recent"
 
-      "$mod,Q, killactive," # Close window
-      "$mod,T, togglefloating," # Toggle Floating
-      "$mod,F, fullscreen" # Toggle Fullscreen
-      "$mod,left, movefocus, l" # Move focus left
-      "$mod,right, movefocus, r" # Move focus Right
-      "$mod,up, movefocus, u" # Move focus Up
-      "$mod,down, movefocus, d" # Move focus Down
-      "$altMod,up, layoutmsg, orientationtop" # Master top
-      "$altMod,down, layoutmsg, orientationbottom" # Master bottom
-      "$altMod,left, layoutmsg, orientationleft" # Master left
-      "$altMod,right, layoutmsg, orientationright" # Master right
-      "$shiftMod,left, layoutmsg, addmaster" # Add to master
-      "$shiftMod,right, layoutmsg, removemaster" # Remove from master
+        "$mod,Q, killactive," # Close window
+        "$mod,T, togglefloating," # Toggle Floating
+        "$mod,F, fullscreen" # Toggle Fullscreen
+        "$mod,left, movefocus, l" # Move focus left
+        "$mod,right, movefocus, r" # Move focus Right
+        "$mod,up, movefocus, u" # Move focus Up
+        "$mod,down, movefocus, d" # Move focus Down
+        "$altMod,up, layoutmsg, orientationtop" # Master top
+        "$altMod,down, layoutmsg, orientationbottom" # Master bottom
+        "$altMod,left, layoutmsg, orientationleft" # Master left
+        "$altMod,right, layoutmsg, orientationright" # Master right
+        "$shiftMod,left, layoutmsg, addmaster" # Add to master
+        "$shiftMod,right, layoutmsg, removemaster" # Remove from master
 
-      "$mod,PRINT, exec, screenshot window" # Screenshot window
-      ",PRINT, exec, screenshot monitor" # Screenshot monitor
-      "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
-      "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
+        "$mod,PRINT, exec, screenshot window" # Screenshot window
+        ",PRINT, exec, screenshot monitor" # Screenshot monitor
+        "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
+        "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
-      "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
-      "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
-      "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
-    ] ++ (builtins.concatLists (builtins.genList (i:
-      let ws = i + 1;
+        "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
+        "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
+        "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
+      ]
+      ++ (builtins.concatLists (builtins.genList (i: let
+        ws = i + 1;
       in [
         "$mod,code:1${toString i}, workspace, ${toString ws}"
         "$mod SHIFT,code:1${toString i}, movetoworkspace, ${toString ws}"
@@ -59,6 +61,5 @@
       ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
       ",XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
     ];
-
   };
 }

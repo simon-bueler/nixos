@@ -13,7 +13,7 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,10 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -51,22 +54,20 @@
     ...
   }: {
     nixosConfigurations = {
-      nixvm =
-        # CHANGEME
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs.overlays = [inputs.hyprpanel.overlay];
-              _module.args = {inherit inputs;};
-            }
-            lix-module.nixosModules.default
-            inputs.disko.nixosModules.disko
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/nixvm/configuration.nix # CHANGEME
-          ];
-        };
+      nixvm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            nixpkgs.overlays = [inputs.hyprpanel.overlay];
+            _module.args = {inherit inputs;};
+          }
+          lix-module.nixosModules.default
+          inputs.disko.nixosModules.disko
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/nixvm/configuration.nix # CHANGEME
+        ];
+      };
       nixSer4 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

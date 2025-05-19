@@ -1,6 +1,9 @@
-{ pkgs, config, inputs, ... }:
-
-let
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}: let
   border-size = config.var.theme.border-size;
   gaps-in = config.var.theme.gaps-in;
   gaps-out = config.var.theme.gaps-out;
@@ -10,8 +13,7 @@ let
   blur = config.var.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
 in {
-
-  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ];
+  imports = [./animations.nix ./bindings.nix ./polkitagent.nix];
 
   home.packages = with pkgs; [
     qt5.qtwayland
@@ -41,9 +43,16 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    systemd = {
+      enable = false;
+      variables = [
+        "--all"
+      ]; # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
+    };
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
-    plugins = [ ];
+    plugins = [];
 
     settings = {
       "$mod" = "SUPER";
@@ -54,7 +63,9 @@ in {
         force_zero_scaling = true;
       };
 
-      exec-once = [ "dbus-update-activation-environment --systemd --all" ];
+      exec-once = [
+        "dbus-update-activation-environment --systemd --all &"
+      ];
 
       monitor = [
         # "Virtual-1,1440x1050@60,auto,1"
@@ -109,7 +120,12 @@ in {
           range = 20;
           render_power = 3;
         };
-        blur = { enabled = if blur then "true" else "false"; };
+        blur = {
+          enabled =
+            if blur
+            then "true"
+            else "false";
+        };
       };
 
       master = {
@@ -118,7 +134,7 @@ in {
         mfact = 0.5;
       };
 
-      gestures = { workspace_swipe = true; };
+      gestures = {workspace_swipe = true;};
 
       misc = {
         vfr = true;
@@ -143,12 +159,8 @@ in {
           natural_scroll = true;
           clickfinger_behavior = true;
         };
-
-
       };
     };
-
   };
-  systemd.user.targets.hyprland-session.Unit.Wants =
-    [ "xdg-desktop-autostart.target" ];
+  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
 }
