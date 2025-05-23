@@ -150,7 +150,7 @@ in {
       menus.clock.weather.unit = "metric";
       menus.clock.time.military = true;
       menus.dashboard.powermenu.confirmation = false;
-      menus.dashboard.powermenu.avatar.image = "~/.profile_picture.png";
+      menus.dashboard.powermenu.avatar.image = "~/.face.icon";
 
       menus.dashboard.shortcuts.left.shortcut1.icon = "";
       menus.dashboard.shortcuts.left.shortcut1.command = "zen";

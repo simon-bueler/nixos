@@ -5,7 +5,10 @@
 }: {
   programs.zed-editor = {
     enable = true;
-    extensions = ["nix"];
+    extensions = [
+      "nix"
+      "material-icon-theme"
+    ];
 
     userSettings = {
       features = {
@@ -25,10 +28,15 @@
         dark = "One Dark";
         light = "One Light";
       };
-      soft_wrap = "editor_width";
-      experimental.theme_overrides = {
-        editor.document_highlight.read_background = "#777777FF";
+      icon_theme = lib.mkForce {
+        mode = "dark";
+        dark = "Material Icon Theme";
+        light = "Material Icon Theme";
       };
+      soft_wrap = "editor_width";
+      # experimental.theme_overrides = {
+      #   editor.document_highlight.read_background = "#777777FF";
+      # };
       node = {
         path = "${pkgs.nodejs}/bin/node";
         npm_path = "${pkgs.nodejs}/bin/npm";

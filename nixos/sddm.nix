@@ -9,6 +9,7 @@
     embeddedTheme = "astronaut";
     themeConfig = {
       Background = "${toString config.stylix.image}";
+      HideVirtualKeyboard = true;
     };
   };
 in {
@@ -23,6 +24,7 @@ in {
         Wayland.SessionDir = "${
           inputs.hyprland.packages."${pkgs.system}".hyprland
         }/share/wayland-sessions";
+        Theme.EnableAvatars = true;
       };
     };
   };

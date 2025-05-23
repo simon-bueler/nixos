@@ -85,7 +85,7 @@
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard
-    file.".profile_picture.png" = {source = ./profile_picture.jpeg;};
+    file.".face.icon" = {source = ./profile_picture.jpeg;};
 
     # Import my wallpaper, used by the hyprpanel dashboard
 
