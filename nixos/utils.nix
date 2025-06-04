@@ -1,10 +1,12 @@
-{ pkgs, config, ... }:
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   hostname = config.var.hostname;
-   keyboardLayout = config.var.keyboardLayout;
-   consoleLayout = config.var.consoleLayout;
+  keyboardLayout = config.var.keyboardLayout;
+  consoleLayout = config.var.consoleLayout;
 in {
-
   networking.hostName = hostname;
 
   services = {
@@ -63,4 +65,15 @@ in {
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
+
+  security = {
+    pam.services = {
+      # allow wayland lockers to unlock the screen
+      hyprlock.text = "auth include login";
+
+      # unlock keyring on login
+      sddm.enableGnomeKeyring = true;
+      login.enableGnomeKeyring = true;
+    };
+  };
 }
