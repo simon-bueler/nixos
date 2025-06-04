@@ -24,7 +24,7 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    hyprswitch.url = "github:H3rmt/hyprswitch?ref=hyprshell";
 
     stylix = {
       url = "github:danth/stylix";
@@ -44,6 +44,11 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     #Homebrew
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -55,7 +60,6 @@
   }: {
     nixosConfigurations = {
       nixvm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           {
             nixpkgs.overlays = [inputs.hyprpanel.overlay];
@@ -69,7 +73,6 @@
         ];
       };
       nixSer4 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           {
             nixpkgs.overlays = [inputs.hyprpanel.overlay];
@@ -84,7 +87,6 @@
       };
       #build config locally
       nixpi = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
         modules = [
           {
             nixpkgs.overlays = [inputs.hyprpanel.overlay];

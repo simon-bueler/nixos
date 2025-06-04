@@ -18,6 +18,7 @@
     ../../home/programs/zed-editor
     ../../home/programs/mpv
     ../../home/programs/streamcontroller
+    ../../home/programs/nvim
 
     # Scripts
     ../../home/scripts # All scripts

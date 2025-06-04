@@ -26,7 +26,7 @@
     '';
 
     shellAliases = {
-      nvim = "lvim";
+      # nvim = "lvim";
       vim = "lvim";
       vi = "lvim";
       v = "lvim";
