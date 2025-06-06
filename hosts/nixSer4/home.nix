@@ -19,6 +19,7 @@
     ../../home/programs/mpv
     ../../home/programs/streamcontroller
     ../../home/programs/nvim
+    ../../home/programs/wezterm
 
     # Scripts
     ../../home/scripts # All scripts
@@ -29,7 +30,7 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-    ../../home/system/hyprswitch
+    ../../home/system/hyprshell
     ../../home/system/wofi
     #../../home/system/batsignal
     ../../home/system/zathura

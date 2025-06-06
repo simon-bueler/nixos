@@ -24,7 +24,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprswitch.url = "github:H3rmt/hyprswitch?ref=hyprshell";
+    hyprshell = {
+      url = "github:H3rmt/hyprswitch?ref=hyprshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix = {
       url = "github:danth/stylix";
@@ -56,6 +59,7 @@
     nixpkgs,
     lix-module,
     nix-darwin,
+    hyprshell,
     ...
   }: {
     nixosConfigurations = {

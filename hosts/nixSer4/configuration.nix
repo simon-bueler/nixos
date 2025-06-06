@@ -21,7 +21,6 @@
     ../../nixos/variables-config.nix
     ../../nixos/hyprland.nix
     #../../nixos/openssh.nix
-
     #../../nixos/vm.nix
 
     ../../themes/nixy.nix
