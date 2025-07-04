@@ -20,6 +20,7 @@
     ../../home/programs/streamcontroller
     ../../home/programs/nvim
     ../../home/programs/wezterm
+    ../../home/programs/zen-browser
 
     # Scripts
     ../../home/scripts # All scripts
@@ -51,7 +52,11 @@
       feishin
       element-desktop
       freefilesync
-      inputs.zen-browser.packages."${system}".default
+
+      # E-Reader
+      calibre
+      hakuneko
+      kcc
 
       # Dev
       nil

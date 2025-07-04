@@ -13,7 +13,7 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -23,9 +23,8 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprshell = {
-      url = "github:H3rmt/hyprswitch?ref=hyprshell";
+      url = "github:H3rmt/hyprshell?ref=hyprshell-release";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,7 +34,11 @@
     };
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ###For Raspberry Pi
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ### Darwin
@@ -79,7 +82,6 @@
       nixSer4 = nixpkgs.lib.nixosSystem {
         modules = [
           {
-            nixpkgs.overlays = [inputs.hyprpanel.overlay];
             _module.args = {inherit inputs;};
           }
           lix-module.nixosModules.default

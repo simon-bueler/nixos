@@ -6,21 +6,9 @@
     enable = true;
     systemd.args = "-v";
     settings = {
-      launcher = {
+      windows = {
         enable = false;
-        # max_items = 5;
-        # plugins.websearch = {
-        #   enable = true;
-        #   engines = [
-        #     {
-        #       name = "DuckDuckGo";
-        #       url = "https://duckduckgo.com/?q=%s";
-        #       key = "d";
-        #     }
-        #   ];
-        # };
       };
-      windows.overview.enable = false;
     };
   };
 

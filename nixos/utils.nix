@@ -31,13 +31,14 @@ in {
   services.libinput.enable = true;
   programs.dconf.enable = true;
   services = {
-    dbus.enable = true;
+    dbus = {
+      enable = true;
+    };
     gvfs.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
   };
-
   # Faster rebuilding
   documentation = {
     enable = true;
@@ -57,6 +58,7 @@ in {
     wget
     curl
     seahorse
+    gcr
   ];
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.seahorse.out}/libexec/seahorse/ssh-askpass";
@@ -73,6 +75,7 @@ in {
 
       # unlock keyring on login
       sddm.enableGnomeKeyring = true;
+      sddm-password.enableGnomeKeyring = true;
       login.enableGnomeKeyring = true;
     };
   };

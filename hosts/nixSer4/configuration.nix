@@ -42,6 +42,8 @@
   networking.firewall.allowedTCPPorts = [22000];
   networking.firewall.allowedUDPPorts = [22000 21027];
 
+  virtualisation.podman.enable = true;
+
   # Don't touch this
   system.stateVersion = "24.05";
 }
