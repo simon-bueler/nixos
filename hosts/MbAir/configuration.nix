@@ -18,6 +18,8 @@ in {
     home = "/Users/${username}";
   };
 
+  system.primaryUser = "${username}";
+
   environment.systemPackages = with pkgs; [
     zed-editor
   ];

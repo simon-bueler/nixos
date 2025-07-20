@@ -51,8 +51,8 @@
     #Homebrew
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nvf = {
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -63,6 +63,7 @@
     lix-module,
     nix-darwin,
     hyprshell,
+    nvf,
     ...
   }: {
     nixosConfigurations = {

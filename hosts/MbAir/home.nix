@@ -20,6 +20,7 @@
       alejandra
 
       lunarvim
+      mosh
     ];
 
     # Don't touch this
