@@ -38,6 +38,7 @@
     loginwindow.GuestEnabled = false;
     NSGlobalDomain.AppleICUForce24HourTime = true;
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    #NSGlobalDomain.AppleIconAppearanceTheme = "RegularDark";
     NSGlobalDomain.KeyRepeat = 2;
     NSGlobalDomain.AppleShowAllExtensions = true;
 
