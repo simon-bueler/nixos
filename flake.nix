@@ -12,11 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,7 +55,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    lix-module,
     nix-darwin,
     hyprshell,
     nvf,
@@ -73,7 +67,6 @@
             nixpkgs.overlays = [inputs.hyprpanel.overlay];
             _module.args = {inherit inputs;};
           }
-          lix-module.nixosModules.default
           inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
@@ -85,7 +78,6 @@
           {
             _module.args = {inherit inputs;};
           }
-          lix-module.nixosModules.default
           inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
@@ -96,10 +88,8 @@
       nixpi = nixpkgs.lib.nixosSystem {
         modules = [
           {
-            nixpkgs.overlays = [inputs.hyprpanel.overlay];
             _module.args = {inherit inputs;};
           }
-          lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.raspberry-pi-4
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix

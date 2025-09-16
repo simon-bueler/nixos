@@ -63,10 +63,9 @@ in {
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.seahorse.out}/libexec/seahorse/ssh-askpass";
 
-  services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+  };
 
   security = {
     pam.services = {

@@ -17,7 +17,7 @@
     ../../home/programs/thunar
     ../../home/programs/zed-editor
     ../../home/programs/mpv
-    ../../home/programs/streamcontroller
+    #Broken Package#../../home/programs/streamcontroller
     ../../home/programs/nvim
     ../../home/programs/wezterm
     ../../home/programs/zen-browser
@@ -31,7 +31,6 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-    ../../home/system/hyprshell
     ../../home/system/wofi
     #../../home/system/batsignal
     ../../home/system/zathura
@@ -63,7 +62,7 @@
       alejandra
       # go
       # nodejs
-      # python3
+      python3
       # jq
       # figlet
 

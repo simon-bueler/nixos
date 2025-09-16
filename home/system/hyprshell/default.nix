@@ -6,9 +6,7 @@
     enable = true;
     systemd.args = "-v";
     settings = {
-      windows = {
-        enable = false;
-      };
+      windows.enable = false;
     };
   };
 

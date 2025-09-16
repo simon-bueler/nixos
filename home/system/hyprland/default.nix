@@ -49,8 +49,8 @@ in {
         "--all"
       ]; # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
     };
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
 
     plugins = [];
 
@@ -73,20 +73,19 @@ in {
       ];
 
       env = [
-        "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        #"SSH_AUTH_SOCK,/run/user/1000/keyring/ssh"
         "MOZ_ENABLE_WAYLAND,1"
         "ANKI_WAYLAND,1"
         "DISABLE_QT5_COMPAT,0"
         "NIXOS_OZONE_WL,1"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        #"GTK_THEME,FlatColor:dark"
-        #"GTK2_RC_FILES,/home/simon/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
+        "__GL_GSYNC_ALLOWED,0"
+        "__GL_VRR_ALLOWED,0"
         "DISABLE_QT5_COMPAT,0"
         "DIRENV_LOG_FORMAT,"
         "WLR_DRM_NO_ATOMIC,1"
@@ -95,12 +94,11 @@ in {
         "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        # "AQ_DRM_DEVICES,/dev/dri/card0" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
         no_hardware_cursors = true;
-        default_monitor = "Virtual-1";
+        #default_monitor = "Virtual-1";
       };
 
       general = {
@@ -145,6 +143,33 @@ in {
         new_window_takes_over_fullscreen = 2;
       };
 
+      windowrulev2 = [
+        "float, tag:modal"
+        "pin, tag:modal"
+        "center, tag:modal"
+
+        # make Firefox/Zen PiP window floating and sticky
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+
+        # idle inhibit while watching videos
+        "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
+        "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen, class:^(zen)$"
+
+        "dimaround, class:^(gcr-prompter)$"
+        "dimaround, class:^(xdg-desktop-portal-gtk)$"
+        "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
+        "dimaround, class:^(zen)$, title:^(File Upload)$"
+
+        # fix xwayland apps
+        "rounding 0, xwayland:1"
+        "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
+        "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+      ];
+
+      layerrule = ["noanim, launcher" "noanim, ^ags-.*"];
+
       input = {
         kb_layout = keyboardLayout;
 
@@ -162,5 +187,5 @@ in {
       };
     };
   };
-  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
+  #systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
 }

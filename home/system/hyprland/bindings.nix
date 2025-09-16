@@ -30,17 +30,19 @@
         ",PRINT, exec, screenshot monitor" # Screenshot monitor
         "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
         "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
+        "ALT, Tab, exec, hyprtab" # alt + tab for switching windows
 
         "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
         "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
         "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
       ]
       ++ (builtins.concatLists (builtins.genList (i: let
-        ws = i + 1;
-      in [
-        "$mod,code:1${toString i}, workspace, ${toString ws}"
-        "$mod SHIFT,code:1${toString i}, movetoworkspace, ${toString ws}"
-      ]) 9));
+          ws = i + 1;
+        in [
+          "$mod,code:1${toString i}, workspace, ${toString ws}"
+          "$mod SHIFT,code:1${toString i}, movetoworkspace, ${toString ws}"
+        ])
+        9));
 
     bindm = [
       "$mod,mouse:272, movewindow" # Move Window (mouse)
