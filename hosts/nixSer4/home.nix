@@ -51,6 +51,7 @@
       feishin
       element-desktop
       freefilesync
+      localsend
 
       # E-Reader
       calibre
