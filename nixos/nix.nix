@@ -10,7 +10,7 @@ in {
       warn-dirty = false
     '';
     settings = {
-      download-buffer-size = 109051904; # 1 GB (1024 * 1024 * 1024)
+      download-buffer-size = 1073741824; # 1 GB (1024 * 1024 * 1024) in Binary (base 2) Bytes
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
       substituters = [

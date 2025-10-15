@@ -30,7 +30,8 @@
         ",PRINT, exec, screenshot monitor" # Screenshot monitor
         "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
         "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
-        "ALT, Tab, exec, hyprtab" # alt + tab for switching windows
+        "ALT, Tab, workspace, m+1" # switching workspaces
+        "ALT SHIFT, Tab, workspace, m-1" # switching workspaces backwards
 
         "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
         "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi

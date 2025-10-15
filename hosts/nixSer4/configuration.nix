@@ -34,9 +34,9 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  environment.systemPackages = with pkgs; [
-    (callPackage ../../nixos/hyprland-alt-tab.nix {})
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   (callPackage ../../nixos/hyprland-alt-tab.nix {})
+  # ];
   # Syncthing ports: 8384 for remote access to GUI
   # 22000 TCP and/or UDP for sync traffic
   # 21027/UDP for discovery
