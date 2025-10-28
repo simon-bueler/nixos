@@ -9,14 +9,6 @@
 in {
   networking.hostName = hostname;
 
-  services = {
-    xserver = {
-      enable = true;
-      xkb.layout = keyboardLayout;
-      xkb.variant = "";
-    };
-    gnome.gnome-keyring.enable = true;
-  };
   console.keyMap = consoleLayout;
 
   environment.variables = {
@@ -28,16 +20,28 @@ in {
     BROWSER = "zen";
   };
 
-  services.libinput.enable = true;
   programs.dconf.enable = true;
   services = {
+    xserver = {
+      enable = true;
+      xkb.layout = keyboardLayout;
+      xkb.variant = "";
+    };
+    gnome.gnome-keyring.enable = true;
+    psd = {
+      enable = true;
+      resyncTimer = "10m";
+    };
     dbus = {
       enable = true;
+      implementation = "broker";
+      packages = with pkgs; [gcr gnome-settings-daemon];
     };
     gvfs.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
+    libinput.enable = true;
   };
   # Faster rebuilding
   documentation = {
@@ -53,12 +57,12 @@ in {
     fd
     bc
     gcc
+    file
     git-ignore
     xdg-utils
     wget
     curl
     seahorse
-    gcr
   ];
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.seahorse.out}/libexec/seahorse/ssh-askpass";
@@ -71,6 +75,9 @@ in {
     pam.services = {
       # allow wayland lockers to unlock the screen
       hyprlock.text = "auth include login";
+
+      # userland niceness
+      rtkit.enable = true;
 
       # unlock keyring on login
       sddm.enableGnomeKeyring = true;

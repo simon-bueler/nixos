@@ -19,5 +19,7 @@
       NewTabPage = true;
       # find more options here: https://mozilla.github.io/policy-templates/
     };
+    profiles."default" = {};
   };
+  stylix.targets.zen-browser.profileNames = ["default"];
 }
