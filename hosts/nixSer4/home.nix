@@ -67,6 +67,13 @@
       # jq
       # figlet
 
+      #devops
+      terraform
+      talosctl
+      talhelper
+      sops
+      age
+
       # Utils
       zip
       unzip

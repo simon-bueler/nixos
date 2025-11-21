@@ -26,7 +26,7 @@
       "x-scheme-handler/http" = "zen.desktop";
       "x-scheme-handler/https" = "zen.desktop";
       "text/html" = "zen.desktop";
-      "application/pdf" = "zathura.desktop";
+      "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       "audio/mp4" = "umpv.desktop";
       "audio/x-mpegurl" = "umpv.desktop";
       "x-scheme-handler/chrome" = "zen.desktop";
