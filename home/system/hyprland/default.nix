@@ -143,32 +143,32 @@ in {
         new_window_takes_over_fullscreen = 2;
       };
 
-      windowrulev2 = [
-        "float, tag:modal"
-        "pin, tag:modal"
-        "center, tag:modal"
+      windowrule = [
+        "match:float true, tag +modal"
+        "match:pin true, tag +modal"
+        "center true, match:tag modal"
 
         # make Firefox/Zen PiP window floating and sticky
-        "float, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
+        "float true, match:title ^(Picture-in-Picture)$"
+        "pin true, match:title ^(Picture-in-Picture)$"
 
         # idle inhibit while watching videos
-        "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
-        "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
-        "idleinhibit fullscreen, class:^(zen)$"
+        "idle_inhibit focus, match:class ^(mpv|.+exe|celluloid)$"
+        "idle_inhibit focus, match:class ^(zen)$, match:title ^(.*YouTube.*)$"
+        "idle_inhibit fullscreen, match:class ^(zen)$"
 
-        "dimaround, class:^(gcr-prompter)$"
-        "dimaround, class:^(xdg-desktop-portal-gtk)$"
-        "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
-        "dimaround, class:^(zen)$, title:^(File Upload)$"
+        "dim_around true, match:class ^(gcr-prompter)$"
+        "dim_around true, match:class ^(xdg-desktop-portal-gtk)$"
+        "dim_around true, match:class ^(polkit-gnome-authentication-agent-1)$"
+        "dim_around true, match:class ^(zen)$, match:title ^(File Upload)$"
 
         # fix xwayland apps
-        "rounding 0, xwayland:1"
-        "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
-        "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+        "rounding 0, match:xwayland true"
+        "center true, match:class ^(.*jetbrains.*)$, match:title ^(Confirm Exit|Open Project|win424|win201|splash)$"
+        "size 640 400, match:class ^(.*jetbrains.*)$, match:title ^(splash)$"
       ];
 
-      layerrule = ["noanim, launcher" "noanim, ^ags-.*"];
+      layerrule = ["no_anim true, match:namespace launcher" "no_anim true, match:namespace ^ags-.*"];
 
       input = {
         kb_layout = keyboardLayout;

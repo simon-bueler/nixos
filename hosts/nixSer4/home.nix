@@ -73,6 +73,7 @@
       talhelper
       sops
       age
+      omnictl
 
       # Utils
       zip
