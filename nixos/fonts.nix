@@ -23,7 +23,7 @@
       nerd-fonts.meslo-lg
       openmoji-color
       twemoji-color-font
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+      inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro-nerd
     ];
 
     enableDefaultPackages = false;

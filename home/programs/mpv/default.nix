@@ -1,26 +1,26 @@
-{ pkgs, ... }:{
-programs.mpv = {
-  enable = true;
+{pkgs, ...}: {
+  programs.mpv = {
+    enable = true;
 
-  package = (
-    pkgs.mpv-unwrapped.wrapper {
-      scripts = with pkgs.mpvScripts; [
-        uosc
-        sponsorblock
-      ];
+    package = (
+      pkgs.mpv.override {
+        mpv-unwrapped = pkgs.mpv-unwrapped.override {
+          waylandSupport = true;
+        };
+      }
+    );
 
-      mpv = pkgs.mpv-unwrapped.override {
-        waylandSupport = true;
-      };
-    }
-  );
+    config = {
+      profile = "high-quality";
+      ytdl-format = "bestvideo+bestaudio";
+    };
+    bindings = {
+      "Shift+S" = "playlist-shuffle";
+    };
 
-  config = {
-    profile = "high-quality";
-    ytdl-format = "bestvideo+bestaudio";
+    scripts = with pkgs.mpvScripts; [
+      uosc
+      sponsorblock
+    ];
   };
-  bindings = {
-    "Shift+S" = "playlist-shuffle";
-  };
-};
 }

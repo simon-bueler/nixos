@@ -3,7 +3,7 @@
     bind =
       [
         "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
-        "$mod,E, exec, uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
+        "$mod,E, exec, uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
         "$mod,B, exec, uwsm app -- zen-beta"
         # "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
         "$mod,L, exec, uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock

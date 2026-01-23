@@ -1,5 +1,9 @@
-{ inputs, pkgs, config, ... }: {
-
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./variables.nix
 
@@ -31,7 +35,6 @@
     #../../home/system/clipman
     # ../../home/system/syncthing
     ../../home/system/keychain
-
   ];
 
   home = {
@@ -45,8 +48,7 @@
       #element-desktop
       #freefilesync
       #streamcontroller
-      #inputs.zen-browser.packages."${system}".default
-
+      #inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
 
       # Dev
       #nixd
@@ -84,7 +86,6 @@
     #file.".profile_picture.png" = { source = ./profile_picture.jpeg; };
 
     # Import my wallpaper, used by the hyprpanel dashboard
-
 
     # Don't touch this
     stateVersion = "24.05";

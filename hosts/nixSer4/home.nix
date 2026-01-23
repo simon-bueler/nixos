@@ -87,6 +87,7 @@
       spotdl
       mediainfo
       moonlight-qt
+      streamcontroller
 
       # Just cool
       peaclock
