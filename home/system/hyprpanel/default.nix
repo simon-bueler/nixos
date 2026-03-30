@@ -149,13 +149,13 @@ in {
       menus.dashboard.powermenu.avatar.image = "~/.face.icon";
 
       menus.dashboard.shortcuts.left.shortcut1.icon = "";
-      menus.dashboard.shortcuts.left.shortcut1.command = "zen";
+      menus.dashboard.shortcuts.left.shortcut1.command = "zen-beta";
       menus.dashboard.shortcuts.left.shortcut1.tooltip = "Zen";
       menus.dashboard.shortcuts.left.shortcut2.icon = "󰅶";
       menus.dashboard.shortcuts.left.shortcut2.command = "caffeine";
       menus.dashboard.shortcuts.left.shortcut2.tooltip = "Caffeine";
       menus.dashboard.shortcuts.left.shortcut3.icon = "";
-      menus.dashboard.shortcuts.left.shortcut3.command = "zen -new-tab https://localhost:8384";
+      menus.dashboard.shortcuts.left.shortcut3.command = "zen-beta -new-tab https://localhost:8384";
       menus.dashboard.shortcuts.left.shortcut3.tooltip = "Syncthing";
       menus.dashboard.shortcuts.left.shortcut4.icon = "";
       menus.dashboard.shortcuts.left.shortcut4.command = "menu";

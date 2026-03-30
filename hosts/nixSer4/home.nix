@@ -82,7 +82,6 @@
       pfetch
       pandoc
       btop
-      lunarvim
       mosh
       spotdl
       mediainfo

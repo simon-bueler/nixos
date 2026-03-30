@@ -27,9 +27,9 @@
 
     shellAliases = {
       # nvim = "lvim";
-      vim = "lvim";
-      vi = "lvim";
-      v = "lvim";
+      # vim = "lvim";
+      # vi = "lvim";
+      # v = "lvim";
       c = "clear";
       clera = "clear";
       celar = "clear";

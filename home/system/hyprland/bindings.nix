@@ -33,7 +33,7 @@
         "ALT, Tab, workspace, m+1" # switching workspaces
         "ALT SHIFT, Tab, workspace, m-1" # switching workspaces backwards
 
-        "$shiftMod,S, exec, zen -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
+        "$shiftMod,S, exec, zen-beta -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
         "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
         "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
       ]
