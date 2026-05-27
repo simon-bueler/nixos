@@ -1,6 +1,6 @@
 {
   programs.pay-respects = {
-    enable = true;
-    enableZshIntegration = true;
+    enable = false; #broken
+    enableZshIntegration = false;
   };
 }

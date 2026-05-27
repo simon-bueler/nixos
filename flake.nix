@@ -18,10 +18,6 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprshell = {
-      url = "github:H3rmt/hyprshell?ref=hyprshell-release";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     stylix = {
       url = "github:danth/stylix";
@@ -56,7 +52,6 @@
     self,
     nixpkgs,
     nix-darwin,
-    hyprshell,
     nvf,
     ...
   }: {
@@ -105,7 +100,7 @@
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
       ];
-      specialArgs = {inherit inputs;};
+      extraSpecialArgs = {inherit inputs;};
     };
   };
 }
