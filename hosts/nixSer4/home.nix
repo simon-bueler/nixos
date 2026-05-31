@@ -66,6 +66,7 @@
       python3
       # jq
       # figlet
+      gemini-cli
 
       #devops
       terraform
