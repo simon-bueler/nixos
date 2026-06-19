@@ -7,26 +7,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -42,65 +30,27 @@
     #Homebrew
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    nvf = {
-      url = "github:notashelf/nvf";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
+    wrappers.url = "github:Lassulus/wrappers";
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    nix-darwin,
-    nvf,
-    ...
-  }: {
-    nixosConfigurations = {
-      nixvm = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            nixpkgs.overlays = [inputs.hyprpanel.overlay];
-            _module.args = {inherit inputs;};
-          }
-          inputs.disko.nixosModules.disko
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          ./hosts/nixvm/configuration.nix # CHANGEME
-        ];
-      };
-      nixSer4 = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            _module.args = {inherit inputs;};
-          }
-          inputs.disko.nixosModules.disko
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          ./hosts/nixSer4/configuration.nix
-        ];
-      };
-      #build config locally
-      nixpi = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            _module.args = {inherit inputs;};
-          }
-          inputs.nixos-hardware.nixosModules.raspberry-pi-4
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          ./hosts/nixpi/configuration.nix
-        ];
-      };
-    };
-    darwinConfigurations."mbair" = nix-darwin.lib.darwinSystem {
-      modules = [
-        inputs.mac-app-util.darwinModules.default
-        inputs.stylix.darwinModules.stylix
-        ./hosts/MbAir/configuration.nix
-        inputs.home-manager.darwinModules.home-manager
-        inputs.nix-homebrew.darwinModules.nix-homebrew
-      ];
-      extraSpecialArgs = {inherit inputs;};
-    };
-  };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake
+    {inherit inputs;}
+    (inputs.import-tree ./modules);
 }
