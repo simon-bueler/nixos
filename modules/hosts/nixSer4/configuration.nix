@@ -126,6 +126,7 @@
             btop
             mosh
             spotdl
+            deno
             mediainfo
             moonlight-qt
             streamcontroller
