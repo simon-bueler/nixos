@@ -36,7 +36,7 @@
       dbus = {
         enable = true;
         implementation = "broker";
-        packages = with pkgs; [gcr gnome-settings-daemon];
+        packages = with pkgs; [gcr_4 gnome-settings-daemon];
       };
       gvfs.enable = true;
       upower.enable = true;

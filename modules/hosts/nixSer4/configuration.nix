@@ -27,7 +27,6 @@
       self.nixosModules.systemd-boot
       self.nixosModules.timezone
       self.nixosModules.openssh
-      self.nixosModules.rog-azoth-reset
       self.nixosModules.home-manager
       self.nixosModules.theme
       self.nixosModules.niri
@@ -89,6 +88,7 @@
           self.homeModules.mpv
           self.homeModules.zen-browser
           self.homeModules.zed-editor
+          self.homeModules.vis
           self.homeModules.syncthing
           self.homeModules.zathura
           self.homeModules.thunar
@@ -108,10 +108,10 @@
             freefilesync
             localsend
             calibre
-            hakuneko
+            #hakuneko
             kcc
             alejandra
-            gemini-cli
+            antigravity-cli
             terraform
             talosctl
             talhelper
