@@ -96,7 +96,81 @@
         end
       end
 
-      -- Telescope-style Fuzzy Finders
+      -- Telescope-style Fuzzy Finder
+      vis:command_register("fzf", function(argv, force, win, selection, range)
+          local fzf_path = "fzf"
+          if argv[1] == "--search-path" then
+              table.remove(argv, 1)
+              local dir = table.remove(argv, 1)
+              fzf_path = (
+                  [[find ]] .. dir .. [[ -type f | fzf]]
+              )
+          end
+
+          local command = string.gsub([[
+                  $fzf_path \
+                      --header="Enter:edit,^s:split,^v:vsplit" \
+                      --expect="ctrl-s,ctrl-v" \
+                      $fzf_args $args
+              ]],
+              '%$([%w_]+)', {
+                  fzf_path=fzf_path,
+                  fzf_args="",
+                  args=table.concat(argv, " ")
+              }
+          )
+
+          local file = io.popen(command)
+          local output = {}
+          for line in file:lines() do
+              table.insert(output, line)
+          end
+          local success, msg, status = file:close()
+
+          if status == 0 then
+              local action = 'e'
+
+              if     output[1] == 'ctrl-s' then action = 'split'
+              elseif output[1] == 'ctrl-v' then action = 'vsplit'
+              end
+
+              vis:feedkeys(string.format(":%s '%s'<Enter>", action, output[2]))
+          elseif status == 1 then
+              vis:info(
+                  string.format(
+                      "fzf-open: No match. Command %s exited with return value %i.",
+                      command, status
+                  )
+              )
+          elseif status == 2 then
+              vis:info(
+                  string.format(
+                      "fzf-open: Error. Command %s exited with return value %i.",
+                      command, status
+                  )
+              )
+          elseif status == 130 then
+              vis:info(
+                  string.format(
+                      "fzf-open: Interrupted. Command %s exited with return value %i",
+                      command, status
+                  )
+              )
+          else
+              vis:info(
+                  string.format(
+                      "fzf-open: Unknown exit status %i. command %s exited with return value %i",
+                      status, command, status
+                  )
+              )
+          end
+
+          vis:feedkeys("<vis-redraw>")
+
+          return true;
+      end, "Select file to open with fzf")
+
+
       local function fzf_find_files()
         local status, out = vis:pipe('fzf', true)
         if status == 0 and out and #out > 0 then
@@ -120,30 +194,28 @@
       end
 
       vis.events.subscribe(vis.events.INIT, function()
-        local leader = '<Space>'
-
         -- Theme
         vis:command('set theme rose-pine')
 
         -- Quick save / quit
-        vis:map(vis.modes.NORMAL, leader .. 'w', ':w<Enter>')
-        vis:map(vis.modes.NORMAL, leader .. 'q', ':q<Enter>')
+        vis:map(vis.modes.NORMAL, ' w', ':w<Enter>')
+        vis:map(vis.modes.NORMAL, ' q', ':q<Enter>')
 
         -- Project View (<leader>pv -> :e .)
-        vis:map(vis.modes.NORMAL, leader .. 'pv', ':e .<Enter>')
+        vis:map(vis.modes.NORMAL, ' pv', ':e .<Enter>')
 
         -- Telescope equivalents (<leader>pf, <C-p>, <leader>ps)
-        vis:map(vis.modes.NORMAL, leader .. 'pf', fzf_find_files)
-        vis:map(vis.modes.NORMAL, '<C-p>', fzf_find_files)
-        vis:map(vis.modes.NORMAL, leader .. 'ps', fzf_live_grep)
+        vis:map(vis.modes.NORMAL, ' pf', ':fzf<Enter>')
+        vis:map(vis.modes.NORMAL, '<C-p>', ':fzf<Enter>')
+        vis:map(vis.modes.NORMAL, ' ps', ':fzf --search-path /home<Enter>')
 
         -- Harpoon mappings
-        vis:map(vis.modes.NORMAL, leader .. 'a', function() harpoon:add() end)
+        vis:map(vis.modes.NORMAL, ' a', function() harpoon:add() end)
         vis:map(vis.modes.NORMAL, '<C-e>', function() harpoon:menu() end)
-        vis:map(vis.modes.NORMAL, '<C-h>', function() harpoon:select(1) end)
-        vis:map(vis.modes.NORMAL, '<C-t>', function() harpoon:select(2) end)
-        vis:map(vis.modes.NORMAL, '<C-n>', function() harpoon:select(3) end)
-        vis:map(vis.modes.NORMAL, '<C-s>', function() harpoon:select(4) end)
+        vis:map(vis.modes.NORMAL, '<C-1>', function() harpoon:select(1) end)
+        vis:map(vis.modes.NORMAL, '<C-2>', function() harpoon:select(2) end)
+        vis:map(vis.modes.NORMAL, '<C-3>', function() harpoon:select(3) end)
+        vis:map(vis.modes.NORMAL, '<C-4>', function() harpoon:select(4) end)
 
         -- Centered scrolling & search
         vis:map(vis.modes.NORMAL, '<C-d>', '<vis-window-halfpage-down><vis-window-redraw-center>')
@@ -152,15 +224,15 @@
         vis:map(vis.modes.NORMAL, 'N', '<vis-motion-search-repeat-backward><vis-window-redraw-center>')
 
         -- Void register operations
-        vis:map(vis.modes.NORMAL, leader .. 'd', '"_d')
-        vis:map(vis.modes.VISUAL, leader .. 'd', '"_d')
-        vis:map(vis.modes.VISUAL, leader .. 'p', '"_dP')
+        vis:map(vis.modes.NORMAL, ' d', '"_d')
+        vis:map(vis.modes.VISUAL, ' d', '"_d')
+        vis:map(vis.modes.VISUAL, ' p', '"_dP')
 
         -- System Clipboard (Wayland / wl-clipboard integration)
-        vis:map(vis.modes.VISUAL, leader .. 'y', ':> vis-clipboard --copy<Enter>')
-        vis:map(vis.modes.VISUAL_LINE, leader .. 'y', ':> vis-clipboard --copy<Enter>')
-        vis:map(vis.modes.NORMAL, leader .. 'p', ':< vis-clipboard --paste<Enter>')
-        vis:map(vis.modes.NORMAL, leader .. 'Y', function()
+        vis:map(vis.modes.VISUAL, ' y', ':> vis-clipboard --copy<Enter>')
+        vis:map(vis.modes.VISUAL_LINE, ' y', ':> vis-clipboard --copy<Enter>')
+        vis:map(vis.modes.NORMAL, ' p', ':< vis-clipboard --paste<Enter>')
+        vis:map(vis.modes.NORMAL, ' Y', function()
           local win = vis.win
           if win and win.file then
             local line = win.file.lines[win.selection.line]
@@ -197,7 +269,7 @@
         end)
 
         -- Make file executable (<leader>x)
-        vis:map(vis.modes.NORMAL, leader .. 'x', function()
+        vis:map(vis.modes.NORMAL, ' x', function()
           local win = vis.win
           if win and win.file and win.file.name then
             os.execute('chmod +x ' .. win.file.name)
